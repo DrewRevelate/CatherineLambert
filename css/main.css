@@ -1,27 +1,26 @@
 /* 
- * Main Stylesheet - Soft Redesign
+ * Main Stylesheet - Modern Calm Design
  * Catherine Lambert Therapy Website
  */
 
 /* ===== Color Variables ===== */
 :root {
-    --primary: #9d89aa;      /* Softer lavender */
-    --primary-light: #c9b6d8; /* Light lavender */
-    --secondary: #e2d0db;    /* Soft dusty rose */
-    --accent: #f8eff2;       /* Very soft pink */
-    --dark: #4a5566;         /* Muted blue-gray */
-    --text: #555555;         /* Softer gray */
-    --text-light: #888888;   /* Medium gray */
-    --background: #fcfcfc;   /* Off-white */
+    --primary: #8a7a99;      /* Deeper muted lavender */
+    --primary-light: #b6a5c9; /* Adjusted lavender */
+    --secondary: #d5c3ce;    /* Muted dusty rose */
+    --accent: #f7f3f5;       /* Very light pink/off-white */
+    --dark: #414c5e;         /* Deeper blue-gray */
+    --text: #4a4a4a;         /* Darker gray for better readability */
+    --text-light: #777777;   /* Medium gray */
+    --background: #fbfbfb;   /* Subtle off-white */
     --white: #ffffff;        /* Pure white */
     --border: #ebebeb;       /* Very light gray */
     --success: #7fb895;      /* Soft sage green */
     --shadow: rgba(0, 0, 0, 0.05); /* Lighter shadow */
     
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, rgba(157, 137, 170, 0.8) 0%, rgba(201, 182, 216, 0.8) 100%);
-    --gradient-secondary: linear-gradient(135deg, rgba(226, 208, 219, 0.8) 0%, rgba(248, 239, 242, 0.8) 100%);
-    --gradient-accent: linear-gradient(135deg, rgba(248, 239, 242, 0.8) 0%, rgba(255, 255, 255, 0.8) 100%);
+    /* Updated gradients */
+    --gradient-primary: linear-gradient(to right, rgba(138, 122, 153, 0.9), rgba(182, 165, 201, 0.8));
+    --gradient-secondary: linear-gradient(to right, rgba(213, 195, 206, 0.8), rgba(247, 243, 245, 0.9));
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -115,7 +114,6 @@ img {
 
 section {
     position: relative;
-    background-color: var(--background);
 }
 
 /* ===== Header & Navigation ===== */
@@ -124,8 +122,8 @@ section {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.03); /* Softer shadow */
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Softer shadow */
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
@@ -230,7 +228,7 @@ section {
 .nav-btn:hover {
     background: var(--primary);
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(157, 137, 170, 0.2);
+    box-shadow: 0 5px 15px rgba(138, 122, 153, 0.2);
 }
 
 .nav-btn:after {
@@ -255,10 +253,8 @@ section {
 .hero {
     height: 85vh;
     min-height: 600px;
-    background-image: url('../images/hero_banner.jpg');
     background-size: cover;
     background-position: center;
-    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -267,19 +263,7 @@ section {
     overflow: hidden;
 }
 
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to right, rgba(74, 85, 102, 0.6), rgba(74, 85, 102, 0.4));
-    backdrop-filter: blur(2px);
-}
-
 .hero-content {
-    position: relative;
-    z-index: 2;
     color: var(--white);
     max-width: 800px;
     padding: 0 2rem;
@@ -318,14 +302,14 @@ section {
 .btn-primary {
     background: var(--gradient-primary);
     color: var(--white);
-    box-shadow: 0 4px 12px rgba(157, 137, 170, 0.15);
+    box-shadow: 0 4px 12px rgba(138, 122, 153, 0.15);
 }
 
 .btn-primary:hover {
     background: var(--primary);
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(157, 137, 170, 0.25);
+    box-shadow: 0 6px 15px rgba(138, 122, 153, 0.25);
 }
 
 .btn-secondary {
@@ -367,10 +351,6 @@ section {
 }
 
 /* ===== Welcome Section ===== */
-.welcome {
-    background-color: var(--white);
-}
-
 .welcome .container {
     display: flex;
     align-items: center;
@@ -429,11 +409,6 @@ section {
 }
 
 /* ===== Featured Services ===== */
-.featured-services {
-    background: var(--gradient-accent);
-    text-align: center;
-}
-
 .services-preview {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -442,16 +417,9 @@ section {
 }
 
 .service-card {
-    background-color: var(--white);
     padding: 2.5rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
     transition: all 0.4s ease;
-}
-
-.service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
 }
 
 .service-icon {
@@ -500,11 +468,6 @@ section {
 }
 
 /* ===== Testimonial Section ===== */
-.testimonial-section {
-    background: var(--gradient-primary);
-    color: var(--white);
-}
-
 .testimonial {
     max-width: 800px;
     margin: 0 auto;
@@ -535,7 +498,6 @@ section {
 
 /* ===== CTA Section ===== */
 .cta-section {
-    background: var(--gradient-secondary);
     text-align: center;
     padding: 4rem 0;
 }
@@ -552,8 +514,6 @@ section {
 
 /* ===== Page Header ===== */
 .page-header {
-    background: var(--gradient-primary);
-    color: var(--white);
     padding: 7rem 0 3rem;
     margin-top: 80px;
 }
@@ -593,7 +553,7 @@ section {
 }
 
 .about-image img {
-    border-radius: 15px;
+    border-radius: 10px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
 
@@ -642,10 +602,8 @@ section {
 }
 
 .credential-card {
-    background-color: var(--white);
     padding: 2rem;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
 }
 
 .credential-icon {
@@ -679,10 +637,6 @@ section {
     opacity: 0.7;
 }
 
-.philosophy {
-    background: var(--gradient-accent);
-}
-
 .philosophy-content {
     max-width: 800px;
     margin: 0 auto;
@@ -699,9 +653,7 @@ section {
 .principle {
     text-align: left;
     padding: 1.5rem;
-    background-color: var(--white);
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+    border-radius: 10px;
 }
 
 .principle h3 {
@@ -716,7 +668,6 @@ section {
 
 /* ===== Footer ===== */
 #site-footer {
-    background-color: var(--dark);
     color: rgba(255, 255, 255, 0.7);
     padding: 4rem 0 0;
 }
@@ -839,24 +790,4 @@ section {
 
 .bg-white {
     background-color: var(--white);
-}
-
-.bg-accent {
-    background: var(--gradient-accent);
-}
-
-/* ===== Transitions between sections ===== */
-.section-transition {
-    height: 70px;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-}
-
-.transition-white-to-accent {
-    background: linear-gradient(to bottom, var(--white) 0%, var(--accent) 100%);
-}
-
-.transition-accent-to-white {
-    background: linear-gradient(to bottom, var(--accent) 0%, var(--white) 100%);
 }
