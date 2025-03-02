@@ -1,12 +1,11 @@
 /* 
- * Section Transitions - Smooth Gradients
+ * Section Transitions - Modern and Calm Design
  * Catherine Lambert Therapy Website
  */
 
 /* Base page background with subtle pattern */
 body {
-    background: linear-gradient(135deg, var(--background) 0%, var(--white) 100%);
-    background-attachment: fixed;
+    background: var(--background);
     position: relative;
 }
 
@@ -17,140 +16,64 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('../images/bg_texture.png');
-    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239d89aa' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
     pointer-events: none;
     z-index: -1;
 }
 
-/* Smooth flowing background animation */
-.bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
+/* Section spacing */
+.section-spacer {
+    height: 60px;
     width: 100%;
-    height: 100%;
-    z-index: -2;
-    opacity: 0.07;
-    background: linear-gradient(-45deg, #f8eff2, #e2d0db, #c9b6d8, #fcfcfc);
-    background-size: 400% 400%;
-    animation: gradientFlow 15s ease infinite;
+    background: transparent;
 }
 
-@keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-/* Section transition dividers */
-.section-divider {
-    height: 100px;
-    margin-top: -50px;
-    margin-bottom: -50px;
-    position: relative;
-    z-index: 1;
-}
-
-.white-to-accent {
-    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(248,239,242,0.5) 100%);
-}
-
-.accent-to-white {
-    background: linear-gradient(to bottom, rgba(248,239,242,0.5) 0%, rgba(255,255,255,1) 100%);
-}
-
-.white-to-primary {
-    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(201,182,216,0.3) 100%);
-}
-
-.primary-to-white {
-    background: linear-gradient(to bottom, rgba(201,182,216,0.3) 0%, rgba(255,255,255,1) 100%);
-}
-
-.accent-to-primary {
-    background: linear-gradient(to bottom, rgba(248,239,242,0.5) 0%, rgba(201,182,216,0.3) 100%);
-}
-
-.primary-to-accent {
-    background: linear-gradient(to bottom, rgba(201,182,216,0.3) 0%, rgba(248,239,242,0.5) 100%);
-}
-
-.accent-to-dark {
-    background: linear-gradient(to bottom, rgba(248,239,242,0.5) 0%, rgba(74,85,102,0.95) 100%);
-}
-
-/* Section backgrounds - replace harsh colors with gradients */
+/* Section backgrounds */
 .hero {
-    background-image: url('../images/hero_banner.jpg'), linear-gradient(135deg, rgba(201,182,216,0.4) 0%, rgba(226,208,219,0.4) 100%);
-    background-blend-mode: overlay;
-}
-
-.hero-overlay {
-    background: linear-gradient(to right, rgba(74,85,102,0.5), rgba(74,85,102,0.2));
-    backdrop-filter: blur(1px);
-}
-
-.welcome {
-    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,239,242,0.2) 100%);
-}
-
-.featured-services {
-    background: linear-gradient(135deg, rgba(248,239,242,0.2) 0%, rgba(248,239,242,0.5) 100%);
-}
-
-.testimonial-section {
-    background: linear-gradient(135deg, rgba(201,182,216,0.2) 0%, rgba(201,182,216,0.4) 100%);
+    background-image: url('../images/hero_banner.jpg');
+    background-size: cover;
+    background-position: center;
     position: relative;
-    overflow: hidden;
 }
 
-.testimonial-section::before {
+.hero::after {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(65, 76, 94, 0.75), rgba(65, 76, 94, 0.5));
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.welcome {
+    background-color: var(--white);
+}
+
+.featured-services {
+    background-color: var(--accent);
+}
+
+.testimonial-section {
+    background: var(--gradient-primary);
+    position: relative;
 }
 
 .cta-section {
-    background: linear-gradient(135deg, rgba(226,208,219,0.3) 0%, rgba(248,239,242,0.5) 100%);
+    background: var(--gradient-secondary);
 }
 
 #site-footer {
-    background: linear-gradient(to bottom, rgba(74,85,102,0.95) 0%, rgba(44,62,80,1) 100%);
+    background: var(--dark);
 }
 
-/* Wave dividers between sections */
-.wave-divider {
-    position: relative;
-    height: 70px;
-    margin-top: -35px;
-    margin-bottom: -35px;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.wave-divider svg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    fill: var(--white);
-}
-
-.wave-inverted svg {
-    transform: rotate(180deg);
-}
-
-/* Glow effect for cards */
+/* Card styling improvements */
 .service-card, 
 .principle, 
 .method-card, 
@@ -160,23 +83,42 @@ body::before {
 .timeline-content,
 .detail-item,
 .faq-category {
-    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,239,242,0.6) 100%);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    background-color: var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 10px;
 }
 
 .service-card:hover, 
 .principle:hover, 
 .method-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
-    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(226,208,219,0.4) 100%);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    background-color: var(--white);
 }
 
-/* Add these to your HTML file to create proper transitions */
-/* For example, add this before the welcome section:
-<div class="section-divider white-to-accent"></div>
-*/
+/* Page specific backgrounds */
+.page-header {
+    background: var(--gradient-primary);
+    position: relative;
+    z-index: 1;
+}
 
-/* Add this to the beginning of your body tag */
-/* <div class="bg-animation"></div> */
+.about-intro, 
+.credentials, 
+.services-intro,
+.services-list,
+.faq-intro,
+.faq-content,
+.approach-intro,
+.approach-methods,
+.approach-process,
+.contact-content,
+.map-section {
+    background-color: var(--white);
+}
+
+.philosophy,
+.approach-quote {
+    background-color: var(--accent);
+}
