@@ -1,0 +1,250 @@
+/* 
+ * Responsive Stylesheet
+ * Catherine Lambert Therapy Website
+ */
+
+/* ===== Large Screens (Desktops) ===== */
+@media (min-width: 1200px) {
+    .container {
+        padding: 5rem 0;
+    }
+    
+    h1 {
+        font-size: 4rem;
+    }
+    
+    h2 {
+        font-size: 2.8rem;
+    }
+    
+    .logo-name {
+        font-size: 2rem;
+    }
+    
+    .service-card {
+        padding: 3rem 2.5rem;
+    }
+}
+
+/* ===== Medium Screens (Laptops) ===== */
+@media (max-width: 1199px) {
+    h1 {
+        font-size: 3.2rem;
+    }
+    
+    .hero {
+        height: 80vh;
+    }
+    
+    .welcome .container {
+        gap: 3rem;
+    }
+}
+
+/* ===== Small Screens (Tablets) ===== */
+@media (max-width: 991px) {
+    .container {
+        padding: 3.5rem 0;
+    }
+    
+    h1 {
+        font-size: 2.8rem;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+    }
+    
+    .welcome .container {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .section-content {
+        order: 2;
+    }
+    
+    .section-image {
+        order: 1;
+    }
+    
+    .image-frame {
+        max-width: 350px;
+    }
+    
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .about-image {
+        max-width: 450px;
+        margin: 0 auto;
+    }
+    
+    .philosophy-principles {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+/* ===== Extra Small Screens (Mobile) ===== */
+@media (max-width: 767px) {
+    .container {
+        width: 95%;
+        padding: 3rem 0;
+    }
+    
+    h1 {
+        font-size: 2.3rem;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+    }
+    
+    /* Mobile Navigation */
+    #main-nav {
+        position: fixed;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+        z-index: 100;
+    }
+    
+    #main-nav.open {
+        height: calc(100vh - 80px);
+        overflow-y: auto;
+    }
+    
+    #main-nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 2rem 0;
+        gap: 0;
+    }
+    
+    #main-nav li {
+        width: 100%;
+        text-align: center;
+    }
+    
+    #main-nav a {
+        display: block;
+        padding: 1rem 0;
+        font-size: 1.1rem;
+    }
+    
+    #main-nav a:after {
+        display: none;
+    }
+    
+    .nav-btn {
+        display: inline-block;
+        margin: 1rem auto;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    /* Hero Section */
+    .hero {
+        height: 70vh;
+        min-height: 500px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero .btn {
+        width: 100%;
+    }
+    
+    /* Services Section */
+    .services-preview {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Credentials Section */
+    .credentials-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Philosophy Section */
+    .philosophy-principles {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .footer-column {
+        text-align: center;
+    }
+    
+    .footer-column h3:after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .footer-contact li {
+        justify-content: center;
+    }
+}
+
+/* ===== Very Small Screens ===== */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .logo-name {
+        font-size: 1.5rem;
+    }
+    
+    .logo-title {
+        font-size: 0.7rem;
+    }
+    
+    .logo-tagline {
+        font-size: 0.8rem;
+    }
+    
+    .hero {
+        min-height: 400px;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+    }
+    
+    .experience-badge {
+        width: 100px;
+        height: 100px;
+        bottom: -15px;
+        right: -15px;
+    }
+    
+    .experience-badge .years {
+        font-size: 1.7rem;
+    }
+    
+    .experience-badge .text {
+        font-size: 0.7rem;
+    }
+}
