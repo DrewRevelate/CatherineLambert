@@ -1,112 +1,365 @@
-// Header scroll effect
-window.addEventListener('scroll', function() {
-    const header = document.getElementById('header');
-    if (window.scrollY > 50) {
-        header.classList.add('scrolled');
-    } else {
-        header.classList.remove('scrolled');
-    }
-});
-
-// Mobile menu toggle
-const mobileMenu = document.querySelector('.mobile-menu');
-const nav = document.getElementById('nav');
-
-mobileMenu.addEventListener('click', function() {
-    nav.classList.toggle('open');
-    
-    // Animate hamburger to X
-    const bars = this.querySelectorAll('div');
-    bars.forEach(bar => {
-        bar.classList.toggle('active');
-    });
-});
-
-// FAQ accordion
-const faqQuestions = document.querySelectorAll('.faq-question');
-
-faqQuestions.forEach(question => {
-    question.addEventListener('click', function() {
-        // Toggle active class
-        this.classList.toggle('active');
-        
-        // Toggle answer visibility
-        const answer = this.nextElementSibling;
-        answer.classList.toggle('show');
-    });
-});
-
-// Form submission handling
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const formObject = {};
-        
-        formData.forEach((value, key) => {
-            formObject[key] = value;
-        });
-        
-        // Here you would typically send the data to your server or email service
-        // For now, we'll just show a success message
-        console.log('Form submitted with data:', formObject);
-        
-        // Show success message
-        this.innerHTML = `
-            <div style="text-align: center; padding: 2rem;">
-                <h3 style="color: var(--highlight);">Thank You!</h3>
-                <p>Your message has been received. I'll get back to you shortly.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catherine Lambert | Mental Health Counseling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header id="header">
+        <div class="container nav-container">
+            <a href="#" class="logo">Catherine <span>Lambert</span></a>
+            
+            <div class="mobile-menu">
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
-        `;
-    });
-}
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            // Close mobile menu if open
-            nav.classList.remove('open');
+            <nav id="nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#approach">My Approach</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Begin Your Journey to Mental Wellness</h1>
+            <h3>Providing Peace and Purpose</h3>
+            <p>I provide compassionate, evidence-based mental health services in a safe and supportive environment. Let me help you navigate life's challenges and find your path to healing.</p>
+            <a href="#contact" class="btn">Schedule a Consultation</a>
+            <a href="#services" class="btn btn-outline">Explore My Services</a>
+        </div>
+    </section>
+
+    <section id="about" class="light">
+        <div class="container">
+            <div class="about">
+                <div class="about-image">
+                    <img src="placeholder-profile.jpg" alt="Catherine Lambert" />
+                </div>
+                <div class="about-content">
+                    <h2>About Me</h2>
+                    <h3>Catherine Lambert, MS/ED, CAGS</h3>
+                    <p>With over 15 years of experience in mental health counseling, I bring warmth, expertise, and a person-centered approach to every session. I believe in creating a collaborative therapeutic relationship where clients feel heard, respected, and empowered.</p>
+                    <p>I specialize in anxiety, depression, trauma recovery, and relationship issues. My approach integrates evidence-based techniques with compassionate care to help clients overcome challenges and thrive.</p>
+                    <div>
+                        <span class="credentials">MS/ED in Counseling Psychology</span>
+                        <span class="credentials">Certificate of Advanced Graduate Study (CAGS)</span>
+                        <span class="credentials">Licensed Mental Health Counselor</span>
+                        <span class="credentials">Certified in Cognitive Behavioral Therapy</span>
+                    </div>
+                    <p style="margin-top: 1.5rem;">
+                        <a href="#contact" class="btn">Schedule a Consultation</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="colored">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Services</h2>
+                <p>Specialized mental health support tailored to your unique needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Individual Therapy</h3>
+                        <p>One-on-one sessions focused on your personal challenges, goals, and growth. We'll work together to develop strategies for overcoming obstacles and improving well-being.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Couples Counseling</h3>
+                        <p>Strengthen your relationship by improving communication, resolving conflicts, and deepening your connection. Learn to navigate challenges together with greater understanding.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Anxiety Management</h3>
+                        <p>Develop practical techniques to manage anxiety and reduce its impact on your daily life. Learn to recognize triggers and build resilience against stress.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Depression Treatment</h3>
+                        <p>Find your way through depression with compassionate support and evidence-based strategies. We'll work together to rebuild hope and reconnect with joy.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Trauma Recovery</h3>
+                        <p>Process traumatic experiences in a safe, supportive environment. Develop coping skills and work toward healing and post-traumatic growth.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Grief Counseling</h3>
+                        <p>Navigate the complex emotions of grief and loss with compassionate guidance. Find meaning and move forward while honoring your experience.</p>
+                        <a href="#contact" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="approach" class="light">
+        <div class="container">
+            <div class="section-header">
+                <h2>My Approach</h2>
+                <p>Evidence-based therapy tailored to your individual needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Person-Centered</h3>
+                        <p>I believe that you are the expert on your own life. My therapeutic approach begins with deep listening and honoring your unique experiences, strengths, and challenges.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Cognitive Behavioral Therapy</h3>
+                        <p>Explore how thoughts influence feelings and behaviors. Learn practical skills to identify unhelpful thinking patterns and develop healthier perspectives.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Mindfulness-Based</h3>
+                        <p>Develop greater awareness of the present moment to reduce stress, manage difficult emotions, and make intentional choices aligned with your values.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-card-content">
+                        <h3>Trauma-Informed</h3>
+                        <p>All my services recognize the impact of trauma on mental health. I create a safe space where healing can occur at your own pace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>Ready to Begin Your Healing Journey?</h2>
+            <p>Take the first step toward better mental health today.</p>
+            <a href="#contact" class="btn">Schedule Your Consultation</a>
+        </div>
+    </section>
+
+    <section id="faq" class="light">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about therapy and my services</p>
+            </div>
+            <div class="faq">
+                <div class="faq-item">
+                    <div class="faq-question">What can I expect during my first session?</div>
+                    <div class="faq-answer">
+                        Your first session is primarily about getting to know each other. We'll discuss what brought you to therapy, your background and current concerns, and your goals for treatment. It's also an opportunity for you to ask questions and determine if we're a good fit for working together.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How long does each therapy session last?</div>
+                    <div class="faq-answer">
+                        Standard therapy sessions are 50 minutes long. Initial consultations may be scheduled for 60-90 minutes to allow for a more comprehensive assessment of your needs.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How often will we meet?</div>
+                    <div class="faq-answer">
+                        Most clients begin with weekly sessions, which provides consistent support and momentum for change. As you progress, we may adjust the frequency to biweekly or monthly sessions. We'll collaboratively determine the schedule that best meets your needs.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How long will I need to be in therapy?</div>
+                    <div class="faq-answer">
+                        The duration of therapy varies depending on your goals, the complexity of the issues you're addressing, and your pace of change. Some clients achieve their goals in 8-12 sessions, while others benefit from longer-term support. We'll regularly review your progress and adjust our approach as needed.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Do you accept insurance?</div>
+                    <div class="faq-answer">
+                        Yes, I accept several major insurance plans. I also offer self-pay options and sliding scale fees for those without insurance coverage. Please contact me to verify your specific insurance benefits.
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Is everything I share confidential?</div>
+                    <div class="faq-answer">
+                        Confidentiality is a cornerstone of therapy. What you share remains private with few exceptions, which include situations involving risk of harm to yourself or others, suspected abuse of children or vulnerable adults, or if required by court order. We'll discuss these limitations in detail during your first session.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="colored">
+        <div class="container">
+            <div class="section-header">
+                <h2>Contact Me</h2>
+                <p>Take the first step toward healing today</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-info-item">
+                        <i>📍</i>
+                        <div>
+                            <p>123 Healing Street</p>
+                            <p>Suite 205</p>
+                            <p>Wellnessville, WE 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>📱</i>
+                        <div>
+                            <p>(555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>✉️</i>
+                        <div>
+                            <p>catherine@catherinelambert.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <i>⏰</i>
+                        <div>
+                            <p><strong>Monday - Friday:</strong> 9:00 AM - 7:00 PM</p>
+                            <p><strong>Saturday:</strong> 10:00 AM - 2:00 PM</p>
+                            <p><strong>Sunday:</strong> Closed</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Schedule a Consultation</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select id="service" name="service">
+                                <option value="">Please select...</option>
+                                <option value="individual">Individual Therapy</option>
+                                <option value="couples">Couples Counseling</option>
+                                <option value="anxiety">Anxiety Management</option>
+                                <option value="depression">Depression Treatment</option>
+                                <option value="trauma">Trauma Recovery</option>
+                                <option value="grief">Grief Counseling</option>
+                                <option value="other">Other (Please specify)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Brief Description of Your Concerns</label>
+                            <textarea id="message" name="message" rows="4"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-preference">Preferred Contact Method</label>
+                            <select id="contact-preference" name="contact-preference">
+                                <option value="email">Email</option>
+                                <option value="phone">Phone</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn">Request Consultation</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Catherine Lambert</h3>
+                    <p><em>Providing Peace and Purpose</em></p>
+                    <p>Compassionate, evidence-based mental health services in a safe and supportive environment.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#approach">My Approach</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Individual Therapy</a></li>
+                        <li><a href="#services">Couples Counseling</a></li>
+                        <li><a href="#services">Anxiety Management</a></li>
+                        <li><a href="#services">Depression Treatment</a></li>
+                        <li><a href="#services">Trauma Recovery</a></li>
+                        <li><a href="#services">Grief Counseling</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>123 Healing Street, Suite 205</p>
+                    <p>Wellnessville, WE 12345</p>
+                    <p>(555) 123-4567</p>
+                    <p>catherine@catherinelambert.com</p>
+                </div>
+            </div>
             
-            // Calculate offset with fixed header
-            const headerHeight = document.querySelector('header').offsetHeight;
-            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
+            <div class="footer-bottom">
+                <p>&copy; 2025 Catherine Lambert | Providing Peace and Purpose. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
-// Add animation to service cards when they come into view
-const observeElements = (elements, className) => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add(className);
-            }
-        });
-    }, { threshold: 0.3 });
-
-    elements.forEach(element => {
-        observer.observe(element);
-    });
-};
-
-// Apply animations when document is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    const serviceCards = document.querySelectorAll('.service-card');
-    if (serviceCards.length) {
-        observeElements(serviceCards, 'animate-in');
-    }
-});
+    <script src="script.js"></script>
+</body>
+</html>
