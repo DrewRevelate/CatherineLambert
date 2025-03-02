@@ -245,7 +245,7 @@ section {
 .hero {
     height: 85vh;
     min-height: 600px;
-    background-image: url('../images/hero_banner.jpg');
+    background-image: url('../images/backgrounds/hero_banner.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
