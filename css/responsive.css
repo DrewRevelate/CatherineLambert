@@ -1,5 +1,5 @@
 /* 
- * Responsive Stylesheet
+ * Responsive Stylesheet - Softer Version
  * Catherine Lambert Therapy Website
  */
 
@@ -89,6 +89,13 @@
     .philosophy-principles {
         grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
+    
+    /* Softer transitions for tablet */
+    .service-card:hover,
+    .principle:hover,
+    .method-card:hover {
+        transform: translateY(-5px); /* Reduced movement */
+    }
 }
 
 /* ===== Extra Small Screens (Mobile) ===== */
@@ -112,13 +119,14 @@
         top: 80px;
         left: 0;
         width: 100%;
-        background-color: var(--white);
+        background-color: rgba(255, 255, 255, 0.98);
         padding: 0;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         height: 0;
         overflow: hidden;
-        transition: height 0.3s ease;
+        transition: height 0.5s ease; /* Slower transition */
         z-index: 100;
+        backdrop-filter: blur(5px);
     }
     
     #main-nav.open {
@@ -205,6 +213,25 @@
     .footer-contact li {
         justify-content: center;
     }
+    
+    /* Additional mobile adjustments for softer design */
+    .service-card,
+    .principle,
+    .method-card,
+    .credential-card,
+    .info-card,
+    .contact-form-container,
+    .detail-item,
+    .faq-category {
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03); /* Even softer shadow */
+    }
+    
+    .service-card:hover,
+    .principle:hover,
+    .method-card:hover {
+        transform: none; /* Disable hover effects on mobile */
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.03);
+    }
 }
 
 /* ===== Very Small Screens ===== */
@@ -246,5 +273,18 @@
     
     .experience-badge .text {
         font-size: 0.7rem;
+    }
+    
+    /* Additional small screen adjustments */
+    .container {
+        padding: 2.5rem 0; /* More compact spacing */
+    }
+    
+    .quote-box {
+        padding: 2rem;
+    }
+    
+    .quote-box p {
+        font-size: 1.3rem;
     }
 }
