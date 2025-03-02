@@ -577,12 +577,14 @@ section {
     font-size: 2rem;
     font-weight: 600;
     line-height: 1;
+    align-items: center;
     margin-bottom: 0.3rem;
 }
 
 .experience-badge .text {
     font-size: 0.75rem;
     text-transform: uppercase;
+    align-items: center;
     letter-spacing: 0.05em;
 }
 
