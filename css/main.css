@@ -569,6 +569,7 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
 
@@ -577,14 +578,14 @@ section {
     font-weight: 600;
     line-height: 1;
     margin-bottom: 0.3rem;
-    align-items: center;
+    align-items: right;
 }
 
 .experience-badge .text {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    align-items: center;
+    align-items: right;
 }
 
 .intro-paragraph {
