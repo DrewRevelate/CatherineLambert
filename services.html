@@ -1,125 +1,274 @@
-/**
- * Main JavaScript
- * Catherine Lambert Therapy Website
- */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Catherine Lambert</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="site-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">
+                    <span class="logo-name">Catherine Lambert</span>
+                    <span class="logo-title">MS/ED, CAGS</span>
+                </a>
+                <div class="logo-tagline">Providing Peace and Purpose</div>
+            </div>
+            
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html" class="active">Services</a></li>
+                    <li><a href="approach.html">Approach</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html" class="nav-btn">Contact</a></li>
+                </ul>
+            </nav>
+            
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Header scroll effect
-    const header = document.getElementById('site-header');
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
-    });
-    
-    // Smooth scrolling for internal links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-            
-            if (targetId === '#') return;
-            
-            e.preventDefault();
-            
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                const headerHeight = document.getElementById('site-header').offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Services</h1>
+                <p class="breadcrumbs">
+                    <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> Services
+                </p>
+            </div>
+        </section>
+
+        <section class="services-intro">
+            <div class="container">
+                <div class="section-content text-center">
+                    <h2>Specialized Mental Health Support</h2>
+                    <p class="intro-text">I provide evidence-based therapeutic services tailored to your unique needs and goals. Each approach is personalized to help you navigate challenges and foster meaningful growth.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-list">
+            <div class="container">
+                <div class="service-item" id="individual">
+                    <div class="service-image">
+                        <img src="https://placehold.co/600x400" alt="Individual Therapy">
+                    </div>
+                    <div class="service-details">
+                        <h3>Individual Therapy</h3>
+                        <p>One-on-one sessions designed to address your specific challenges, goals, and growth. We'll work together to develop effective strategies for overcoming obstacles and improving overall well-being.</p>
+                        
+                        <h4>This service is ideal for those experiencing:</h4>
+                        <ul>
+                            <li>Life transitions and adjustment difficulties</li>
+                            <li>Stress management challenges</li>
+                            <li>Self-esteem and identity concerns</li>
+                            <li>Personal growth and self-exploration</li>
+                        </ul>
+                        
+                        <h4>What to expect:</h4>
+                        <p>Individual therapy typically begins with an assessment of your current concerns and goals. Together, we'll develop a personalized treatment plan that incorporates evidence-based techniques suited to your needs. Sessions are generally held weekly, with adjustments made as progress continues.</p>
+                        
+                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                    </div>
+                </div>
                 
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-    
-    // Scroll animations using Intersection Observer
-    if ('IntersectionObserver' in window) {
-        // Fade in elements
-        const fadeElements = document.querySelectorAll('.animate-on-scroll.fade-in');
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in-visible');
-                }
-            });
-        }, { threshold: 0.2 });
-        
-        fadeElements.forEach(element => {
-            fadeObserver.observe(element);
-        });
-        
-        // Fade up elements
-        const fadeUpElements = document.querySelectorAll('.animate-on-scroll.fade-up');
-        const fadeUpObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-up-visible');
-                }
-            });
-        }, { threshold: 0.2 });
-        
-        fadeUpElements.forEach(element => {
-            fadeUpObserver.observe(element);
-        });
-        
-        // Fade from left
-        const fadeLeftElements = document.querySelectorAll('.animate-on-scroll.fade-left');
-        const fadeLeftObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-left-visible');
-                }
-            });
-        }, { threshold: 0.2 });
-        
-        fadeLeftElements.forEach(element => {
-            fadeLeftObserver.observe(element);
-        });
-        
-        // Fade from right
-        const fadeRightElements = document.querySelectorAll('.animate-on-scroll.fade-right');
-        const fadeRightObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-right-visible');
-                }
-            });
-        }, { threshold: 0.2 });
-        
-        fadeRightElements.forEach(element => {
-            fadeRightObserver.observe(element);
-        });
-    } else {
-        // Fallback for browsers that don't support IntersectionObserver
-        document.querySelectorAll('.animate-on-scroll').forEach(element => {
-            element.classList.add('fade-in-visible', 'fade-up-visible', 'fade-left-visible', 'fade-right-visible');
-        });
-    }
-    
-    // Testimonial rotation (if multiple testimonials)
-    const testimonials = document.querySelectorAll('.testimonial');
-    
-    if (testimonials.length > 1) {
-        let currentTestimonialIndex = 0;
-        
-        setInterval(() => {
-            testimonials[currentTestimonialIndex].style.opacity = 0;
-            
-            setTimeout(() => {
-                testimonials[currentTestimonialIndex].style.display = 'none';
-                currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
-                testimonials[currentTestimonialIndex].style.display = 'block';
+                <div class="service-divider"></div>
                 
-                setTimeout(() => {
-                    testimonials[currentTestimonialIndex].style.opacity = 1;
-                }, 50);
-            }, 500);
-        }, 8000);
-    }
-});
+                <div class="service-item" id="anxiety">
+                    <div class="service-details">
+                        <h3>Anxiety Management</h3>
+                        <p>Develop practical techniques to manage anxiety and reduce its impact on your daily life. Learn to recognize triggers, challenge anxious thoughts, and build resilience against stress.</p>
+                        
+                        <h4>This service addresses:</h4>
+                        <ul>
+                            <li>Generalized anxiety and persistent worry</li>
+                            <li>Social anxiety and performance fears</li>
+                            <li>Panic attacks and physical anxiety symptoms</li>
+                            <li>Phobias and specific fears</li>
+                        </ul>
+                        
+                        <h4>Therapeutic approaches include:</h4>
+                        <p>Cognitive-Behavioral Therapy (CBT), mindfulness techniques, exposure therapy, and relaxation training. Treatment is focused on both immediate anxiety reduction and long-term management skills to promote lasting change.</p>
+                        
+                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="https://placehold.co/600x400" alt="Anxiety Management">
+                    </div>
+                </div>
+                
+                <div class="service-divider"></div>
+                
+                <div class="service-item" id="trauma">
+                    <div class="service-image">
+                        <img src="https://placehold.co/600x400" alt="Trauma Recovery">
+                    </div>
+                    <div class="service-details">
+                        <h3>Trauma Recovery</h3>
+                        <p>Process traumatic experiences in a safe, supportive environment. Develop coping skills and work toward healing and post-traumatic growth with specialized trauma-informed care.</p>
+                        
+                        <h4>This approach helps with:</h4>
+                        <ul>
+                            <li>Processing past traumatic events</li>
+                            <li>Managing trauma-related symptoms</li>
+                            <li>Developing healthy coping strategies</li>
+                            <li>Rebuilding a sense of safety and trust</li>
+                        </ul>
+                        
+                        <h4>Specialized methods include:</h4>
+                        <p>Trauma-Focused Cognitive Behavioral Therapy (TF-CBT), EMDR (Eye Movement Desensitization and Reprocessing), and other evidence-based trauma approaches. Treatment pacing is always determined by your comfort level and readiness.</p>
+                        
+                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                    </div>
+                </div>
+                
+                <div class="service-divider"></div>
+                
+                <div class="service-item" id="depression">
+                    <div class="service-details">
+                        <h3>Depression Treatment</h3>
+                        <p>Find your way through depression with compassionate support and evidence-based strategies. We'll work together to rebuild hope, reconnect with meaningful activities, and develop sustainable well-being.</p>
+                        
+                        <h4>This service addresses:</h4>
+                        <ul>
+                            <li>Major depressive disorder and persistent depression</li>
+                            <li>Low motivation and energy</li>
+                            <li>Negative thought patterns</li>
+                            <li>Isolation and withdrawal</li>
+                        </ul>
+                        
+                        <h4>Treatment approaches include:</h4>
+                        <p>Cognitive Behavioral Therapy (CBT), Behavioral Activation, Mindfulness-Based Cognitive Therapy (MBCT), and other evidence-based interventions tailored to your specific experience of depression.</p>
+                        
+                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="https://placehold.co/600x400" alt="Depression Treatment">
+                    </div>
+                </div>
+                
+                <div class="service-divider"></div>
+                
+                <div class="service-item" id="relationships">
+                    <div class="service-image">
+                        <img src="https://placehold.co/600x400" alt="Relationship Counseling">
+                    </div>
+                    <div class="service-details">
+                        <h3>Relationship Counseling</h3>
+                        <p>Strengthen your relationship by improving communication, resolving conflicts, and deepening your connection. Learn to navigate challenges together with greater understanding and empathy.</p>
+                        
+                        <h4>This service helps with:</h4>
+                        <ul>
+                            <li>Communication breakdowns and recurring conflicts</li>
+                            <li>Trust and intimacy concerns</li>
+                            <li>Life transitions and relationship growth</li>
+                            <li>Pre-marital counseling and relationship enrichment</li>
+                        </ul>
+                        
+                        <h4>The process includes:</h4>
+                        <p>Initial assessment of relationship patterns, identification of strengths and growth areas, and development of practical strategies to enhance connection. Both partners are engaged equally in a supportive, non-judgmental environment.</p>
+                        
+                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                    </div>
+                </div>
+                
+                <div class="service-divider"></div>
+                
+                <div class="service-item" id="grief">
+                    <div class="service-details">
+                        <h3>Grief Counseling</h3>
+                        <p>Navigate the complex emotions of grief and loss with compassionate guidance. Find meaning and move forward while honoring your experience and the significance of your loss.</p>
+                        
+                        <h4>This service provides support through:</h4>
+                        <ul>
+                            <li>Loss of loved ones</li>
+                            <li>Non-death losses (relationships, health, career)</li>
+                            <li>Complicated grief</li>
+                            <li>Anticipatory grief</li>
+                        </ul>
+                        
+                        <h4>The grief work includes:</h4>
+                        <p>Creating space to express and process emotions, making meaning of your loss, developing coping strategies, and gradually adapting to life changes. Treatment honors the uniqueness of each grief journey.</p>
+                        
+                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                    </div>
+                    <div class="service-image">
+                        <img src="https://placehold.co/600x400" alt="Grief Counseling">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Begin Your Healing Journey?</h2>
+                <p>Take the first step toward mental wellness today.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">Schedule Your Consultation</a>
+                    <a href="approach.html" class="btn btn-secondary">Learn About My Approach</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="site-footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <a href="index.html" class="footer-logo">Catherine Lambert</a>
+                <p class="footer-tagline">Providing Peace and Purpose</p>
+                <p class="footer-address">
+                    123 Healing Street, Suite 205<br>
+                    Wellnessville, WE 12345
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Navigate</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="approach.html">Approach</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                    <li><i class="fas fa-envelope"></i> catherine@catherinelambert.com</li>
+                </ul>
+                <div class="footer-hours">
+                    <h4>Hours</h4>
+                    <p>Monday-Friday: 9am-7pm<br>
+                    Saturday: 10am-2pm</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Catherine Lambert | Mental Health Counseling. All rights reserved.</p>
+            <p>Licensed Mental Health Counselor | MS/ED, CAGS</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>
