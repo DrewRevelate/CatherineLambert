@@ -1,0 +1,182 @@
+/* 
+ * Section Transitions - Smooth Gradients
+ * Catherine Lambert Therapy Website
+ */
+
+/* Base page background with subtle pattern */
+body {
+    background: linear-gradient(135deg, var(--background) 0%, var(--white) 100%);
+    background-attachment: fixed;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../images/bg_texture.png');
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Smooth flowing background animation */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    opacity: 0.07;
+    background: linear-gradient(-45deg, #f8eff2, #e2d0db, #c9b6d8, #fcfcfc);
+    background-size: 400% 400%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Section transition dividers */
+.section-divider {
+    height: 100px;
+    margin-top: -50px;
+    margin-bottom: -50px;
+    position: relative;
+    z-index: 1;
+}
+
+.white-to-accent {
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(248,239,242,0.5) 100%);
+}
+
+.accent-to-white {
+    background: linear-gradient(to bottom, rgba(248,239,242,0.5) 0%, rgba(255,255,255,1) 100%);
+}
+
+.white-to-primary {
+    background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(201,182,216,0.3) 100%);
+}
+
+.primary-to-white {
+    background: linear-gradient(to bottom, rgba(201,182,216,0.3) 0%, rgba(255,255,255,1) 100%);
+}
+
+.accent-to-primary {
+    background: linear-gradient(to bottom, rgba(248,239,242,0.5) 0%, rgba(201,182,216,0.3) 100%);
+}
+
+.primary-to-accent {
+    background: linear-gradient(to bottom, rgba(201,182,216,0.3) 0%, rgba(248,239,242,0.5) 100%);
+}
+
+.accent-to-dark {
+    background: linear-gradient(to bottom, rgba(248,239,242,0.5) 0%, rgba(74,85,102,0.95) 100%);
+}
+
+/* Section backgrounds - replace harsh colors with gradients */
+.hero {
+    background-image: url('../images/hero_banner.jpg'), linear-gradient(135deg, rgba(201,182,216,0.4) 0%, rgba(226,208,219,0.4) 100%);
+    background-blend-mode: overlay;
+}
+
+.hero-overlay {
+    background: linear-gradient(to right, rgba(74,85,102,0.5), rgba(74,85,102,0.2));
+    backdrop-filter: blur(1px);
+}
+
+.welcome {
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,239,242,0.2) 100%);
+}
+
+.featured-services {
+    background: linear-gradient(135deg, rgba(248,239,242,0.2) 0%, rgba(248,239,242,0.5) 100%);
+}
+
+.testimonial-section {
+    background: linear-gradient(135deg, rgba(201,182,216,0.2) 0%, rgba(201,182,216,0.4) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.testimonial-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+}
+
+.cta-section {
+    background: linear-gradient(135deg, rgba(226,208,219,0.3) 0%, rgba(248,239,242,0.5) 100%);
+}
+
+#site-footer {
+    background: linear-gradient(to bottom, rgba(74,85,102,0.95) 0%, rgba(44,62,80,1) 100%);
+}
+
+/* Wave dividers between sections */
+.wave-divider {
+    position: relative;
+    height: 70px;
+    margin-top: -35px;
+    margin-bottom: -35px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.wave-divider svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    fill: var(--white);
+}
+
+.wave-inverted svg {
+    transform: rotate(180deg);
+}
+
+/* Glow effect for cards */
+.service-card, 
+.principle, 
+.method-card, 
+.credential-card, 
+.info-card, 
+.contact-form-container,
+.timeline-content,
+.detail-item,
+.faq-category {
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(248,239,242,0.6) 100%);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.02);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-card:hover, 
+.principle:hover, 
+.method-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(226,208,219,0.4) 100%);
+}
+
+/* Add these to your HTML file to create proper transitions */
+/* For example, add this before the welcome section:
+<div class="section-divider white-to-accent"></div>
+*/
+
+/* Add this to the beginning of your body tag */
+/* <div class="bg-animation"></div> */
