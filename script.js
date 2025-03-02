@@ -36,33 +36,35 @@ faqQuestions.forEach(question => {
     });
 });
 
-// Form submission handling
-const contactForm = document.querySelector('.contact-form form');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(this);
-        const formObject = {};
-        
-        formData.forEach((value, key) => {
-            formObject[key] = value;
+// Form submission handling - wait for DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    const contactForm = document.querySelector('.contact-form form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const formObject = {};
+            
+            formData.forEach((value, key) => {
+                formObject[key] = value;
+            });
+            
+            // Here you would typically send the data to your server or email service
+            // For now, we'll just show a success message
+            console.log('Form submitted with data:', formObject);
+            
+            // Show success message
+            this.innerHTML = `
+                <div style="text-align: center; padding: 2rem;">
+                    <h3 style="color: var(--highlight);">Thank You!</h3>
+                    <p>Your message has been received. I'll get back to you shortly.</p>
+                </div>
+            `;
         });
-        
-        // Here you would typically send the data to your server or email service
-        // For now, we'll just show a success message
-        console.log('Form submitted with data:', formObject);
-        
-        // Show success message
-        this.innerHTML = `
-            <div style="text-align: center; padding: 2rem;">
-                <h3 style="color: var(--highlight);">Thank You!</h3>
-                <p>Your message has been received. I'll get back to you shortly.</p>
-            </div>
-        `;
-    });
-}
+    }
+});
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -89,24 +91,31 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // Add animation to service cards when they come into view
-const observeElements = (elements, className) => {
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add(className);
-            }
-        });
-    }, { threshold: 0.3 });
-
-    elements.forEach(element => {
-        observer.observe(element);
-    });
-};
-
-// Apply animations when document is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    const serviceCards = document.querySelectorAll('.service-card');
-    if (serviceCards.length) {
-        observeElements(serviceCards, 'animate-in');
+    // Check if IntersectionObserver is supported
+    if ('IntersectionObserver' in window) {
+        const observeElements = (elements, className) => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add(className);
+                    }
+                });
+            }, { threshold: 0.3 });
+
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        };
+
+        const serviceCards = document.querySelectorAll('.service-card');
+        if (serviceCards.length) {
+            observeElements(serviceCards, 'animate-in');
+        }
+    } else {
+        // Fallback for browsers that don't support IntersectionObserver
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.classList.add('animate-in');
+        });
     }
 });
