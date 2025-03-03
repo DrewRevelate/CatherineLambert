@@ -2,150 +2,53 @@
  * Fluid Transitions - No Hard Lines
  * Catherine Lambert Therapy Website
  */
-/* Service card styling - add to fluid-transitions.css */
-/* Add these styles to fluid-transitions.css */
-/* Add to fluid-transitions.css - Service Cards and Background Fixes */
 
-/* Equal height service cards */
-.services-preview {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-bottom: 3rem;
-}
-
-.service-card {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  padding: 2.5rem 2rem;
-  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-}
-
-.service-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: var(--gradient-primary);
-  color: var(--white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-  box-shadow: 0 5px 15px rgba(138, 122, 153, 0.15);
-}
-
-.service-card h3 {
-  margin-bottom: 1rem;
-}
-
-.service-card p {
-  margin-bottom: 1.5rem;
-  flex-grow: 1;
-}
-
-/* Gradient backgrounds instead of hard lines */
+/* ===== Base Page Setup ===== */
 body {
-  background: linear-gradient(135deg, var(--background-light) 0%, var(--background) 100%);
-  background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--background-light) 0%, var(--background) 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
 }
 
-/* Fluid section transitions */
-.hero {
-  background-image: url('../images/hero_banner.jpg');
-  position: relative;
+/* Subtle animated background pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 50% 50%, rgba(157, 137, 170, 0.02) 0%, rgba(157, 137, 170, 0) 75%);
+    background-size: 100px 100px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: -1;
+    animation: subtleFloat 15s infinite alternate ease-in-out;
 }
 
-.hero::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(65, 76, 94, 0.75) 0%, rgba(65, 76, 94, 0.5) 100%);
-  z-index: 1;
+/* Animated background */
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    opacity: 0.2;
+    background: linear-gradient(45deg, 
+        rgba(138, 122, 153, 0.05) 0%, 
+        rgba(213, 195, 206, 0.05) 25%,
+        rgba(247, 243, 245, 0.05) 50%,
+        rgba(213, 195, 206, 0.05) 75%,
+        rgba(138, 122, 153, 0.05) 100%);
+    background-size: 400% 400%;
+    animation: gradientMovement 15s ease infinite;
 }
 
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-/* Fluid dividers between sections */
-.fluid-divider {
-  height: 120px;
-  position: relative;
-  margin: -60px 0;
-  z-index: 0;
-}
-
-.fluid-divider.primary-to-white {
-  background: linear-gradient(to bottom, rgba(138, 122, 153, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.fluid-divider.white-to-accent {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(247, 243, 245, 0.3) 100%);
-}
-
-.fluid-divider.accent-to-primary {
-  background: linear-gradient(to bottom, rgba(247, 243, 245, 0.3) 0%, rgba(138, 122, 153, 0.1) 100%);
-}
-
-.fluid-divider.to-dark {
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(65, 76, 94, 0.2) 50%, rgba(65, 76, 94, 0.8) 100%);
-}
-
-/* Fluid section base styling */
-.fluid-section {
-  position: relative;
-  padding: 4rem 0;
-  z-index: 1;
-}
-
-/* Section type backgrounds */
-.fluid-section.primary {
-  background: linear-gradient(135deg, rgba(138, 122, 153, 0.15) 0%, rgba(182, 165, 201, 0.1) 100%);
-}
-
-.fluid-section.secondary {
-  background: linear-gradient(135deg, rgba(213, 195, 206, 0.2) 0%, rgba(247, 243, 245, 0.1) 100%);
-}
-
-.fluid-section.accent {
-  background: linear-gradient(135deg, rgba(247, 243, 245, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.fluid-section.dark {
-  color: var(--white);
-}
-
-/* Footer gradient background */
-#site-footer {
-  position: relative;
-}
-
-#site-footer::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -50vw;
-  width: 200vw;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(65, 76, 94, 0.95) 0%, rgba(44, 62, 80, 1) 100%);
-  z-index: -1;
-}
-/* Fluid header with no hard lines */
+/* ===== Header ===== */
 #site-header {
     position: fixed;
     top: 0;
@@ -159,13 +62,90 @@ body {
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
 }
 
-/* Hero section with content centered */
+/* ===== Fluid Sections ===== */
+.fluid-section {
+    position: relative;
+    padding: 6rem 0;
+    margin: 0;
+    background: transparent;
+    z-index: 1;
+}
+
+/* Gradient overlays for sections */
+.fluid-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50vw; /* Extend beyond the viewport */
+    width: 200vw; /* Cover the entire viewport width plus extra */
+    height: 100%;
+    background: var(--section-gradient);
+    opacity: var(--section-opacity, 0.8);
+    z-index: -1;
+    transform: var(--section-transform, skewY(0deg));
+    transform-origin: center;
+    transition: opacity 0.5s ease;
+}
+
+/* Section types with different gradients */
+.fluid-section.primary {
+    --section-gradient: radial-gradient(ellipse at center, rgba(138, 122, 153, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    --section-opacity: 1;
+}
+
+.fluid-section.secondary {
+    --section-gradient: linear-gradient(135deg, rgba(213, 195, 206, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    --section-opacity: 1;
+}
+
+.fluid-section.accent {
+    --section-gradient: radial-gradient(circle at center, rgba(247, 243, 245, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+    --section-transform: skewY(-2deg);
+}
+
+.fluid-section.accent .container {
+    transform: skewY(2deg); /* Counter the skew for content */
+}
+
+.fluid-section.dark {
+    --section-gradient: linear-gradient(to bottom, rgba(65, 76, 94, 0.95) 0%, rgba(44, 62, 80, 1) 100%);
+    color: var(--white);
+}
+
+/* ===== Fluid Dividers ===== */
+.fluid-divider {
+    height: 150px;
+    position: relative;
+    margin: -75px 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.fluid-divider.primary-to-white {
+    background: linear-gradient(to bottom, rgba(138, 122, 153, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.fluid-divider.white-to-accent {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(247, 243, 245, 0.3) 100%);
+}
+
+.fluid-divider.accent-to-primary {
+    background: linear-gradient(to bottom, rgba(247, 243, 245, 0.3) 0%, rgba(138, 122, 153, 0.1) 100%);
+}
+
+.fluid-divider.to-dark {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(65, 76, 94, 0.2) 50%, rgba(65, 76, 94, 0.8) 100%);
+}
+
+/* ===== Hero Section ===== */
 .hero {
-    height: 85vh;
-    min-height: 500px;
+    background-image: url('../images/hero_banner.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
+    overflow: hidden;
+    height: 85vh;
+    min-height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -173,7 +153,6 @@ body {
     margin-top: 80px;
 }
 
-/* Adjust hero overlay gradient */
 .hero::after {
     content: '';
     position: absolute;
@@ -181,11 +160,16 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(65, 76, 94, 0.75) 0%, rgba(65, 76, 94, 0.6) 100%);
+    background: linear-gradient(135deg, rgba(65, 76, 94, 0.8) 0%, rgba(65, 76, 94, 0.5) 100%);
     z-index: 1;
 }
 
-/* Welcome section with equal content/image space */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* ===== Welcome Section ===== */
 .welcome .container {
     display: flex;
     align-items: center;
@@ -209,94 +193,7 @@ body {
     justify-content: center;
 }
 
-/* Testimonial section with quote styling */
-.testimonial {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 3rem;
-    text-align: center;
-    position: relative;
-}
-
-.testimonial p {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    margin-bottom: 1.5rem;
-    color: var(--white);
-}
-
-.testimonial-author {
-    font-size: 0.9rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-/* CTA section centered */
-.cta-section {
-    text-align: center;
-    padding: 4rem 0;
-}
-
-.cta-section h2 {
-    margin-bottom: 1rem;
-}
-
-.cta-section p {
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    font-size: 1.1rem;
-}
-
-/* Footer with gradient background */
-#site-footer {
-    position: relative;
-    color: rgba(255, 255, 255, 0.7);
-    padding: 4rem 0 0;
-}
-
-#site-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50vw;
-    width: 200vw;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(65, 76, 94, 0.95) 0%, rgba(44, 62, 80, 1) 100%);
-    z-index: -1;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 3rem;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-bottom: 2rem;
-    position: relative;
-    z-index: 2;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding: 1.5rem 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
-    font-size: 0.85rem;
-    position: relative;
-    z-index: 2;
-}
-/* Services grid with equal height cards */
-.services-preview {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-/* Soft card with uniform height */
+/* ===== Card Styling ===== */
 .soft-card {
     background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(10px);
@@ -328,8 +225,30 @@ body {
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
 
+/* ===== Services Section ===== */
+.services-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
 .service-card {
     text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    padding: 2.5rem 2rem;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
 
 .service-icon {
@@ -413,147 +332,93 @@ body {
     transform: translate(3px, -50%);
 }
 
-/* Services CTA button */
 .services-cta {
     margin-top: 1rem;
     text-align: center;
 }
-/* Base page setup with smooth gradient background */
-body {
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(135deg, var(--background-light) 0%, var(--background) 100%);
-    background-attachment: fixed;
+
+/* ===== Testimonial Section ===== */
+.testimonial {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 3rem;
+    text-align: center;
     position: relative;
-    overflow-x: hidden;
 }
 
-/* Subtle animated background pattern */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: radial-gradient(circle at 50% 50%, rgba(157, 137, 170, 0.02) 0%, rgba(157, 137, 170, 0) 75%);
-    background-size: 100px 100px;
-    opacity: 0.5;
-    pointer-events: none;
-    z-index: -1;
-    animation: subtleFloat 15s infinite alternate ease-in-out;
-}
-
-@keyframes subtleFloat {
-    0% {
-        background-position: 0% 0%;
-    }
-    100% {
-        background-position: 100% 100%;
-    }
-}
-
-/* Fluid section transitions - no hard lines */
-.fluid-section {
-    position: relative;
-    padding: 6rem 0;
-    margin: 0;
-    background: transparent;
-    z-index: 1;
-}
-
-/* Gradient overlays for sections */
-.fluid-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50vw; /* Extend beyond the viewport */
-    width: 200vw; /* Cover the entire viewport width plus extra */
-    height: 100%;
-    background: var(--section-gradient);
-    opacity: var(--section-opacity, 0.8);
-    z-index: -1;
-    transform: var(--section-transform, skewY(0deg));
-    transform-origin: center;
-    transition: opacity 0.5s ease;
-}
-
-/* Section types with different gradients */
-.fluid-section.primary {
-    --section-gradient: radial-gradient(ellipse at center, rgba(138, 122, 153, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
-    --section-opacity: 1;
-}
-
-.fluid-section.secondary {
-    --section-gradient: linear-gradient(135deg, rgba(213, 195, 206, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
-    --section-opacity: 1;
-}
-
-.fluid-section.accent {
-    --section-gradient: radial-gradient(circle at center, rgba(247, 243, 245, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
-    --section-transform: skewY(-2deg);
-}
-
-.fluid-section.accent .container {
-    transform: skewY(2deg); /* Counter the skew for content */
-}
-
-.fluid-section.dark {
-    --section-gradient: linear-gradient(to bottom, rgba(65, 76, 94, 0.95) 0%, rgba(44, 62, 80, 1) 100%);
+.testimonial p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    margin-bottom: 1.5rem;
     color: var(--white);
 }
 
-/* Hero section with fluid overlay */
-.hero {
-    background-image: url('../images/hero_banner.jpg');
-    background-size: cover;
-    background-position: center;
+.testimonial-author {
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===== CTA Section ===== */
+.cta-section {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.cta-section h2 {
+    margin-bottom: 1rem;
+}
+
+.cta-section p {
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+}
+
+/* ===== Footer ===== */
+#site-footer {
     position: relative;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 4rem 0 0;
     overflow: hidden;
 }
 
-.hero::after {
+#site-footer::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: -50vw;
+    width: 200vw;
     height: 100%;
-    background: linear-gradient(135deg, rgba(65, 76, 94, 0.8) 0%, rgba(65, 76, 94, 0.5) 100%);
-    z-index: 1;
+    background: linear-gradient(135deg, rgba(65, 76, 94, 0.98) 0%, rgba(44, 62, 80, 1) 100%);
+    z-index: -1;
 }
 
-.hero-content {
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 3rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-bottom: 2rem;
     position: relative;
     z-index: 2;
 }
 
-/* Fluid divider - creates a soft transition between sections */
-.fluid-divider {
-    height: 150px;
+.footer-bottom {
+    text-align: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.85rem;
     position: relative;
-    margin: -75px 0;
-    z-index: 0;
-    overflow: hidden;
+    z-index: 2;
 }
 
-.fluid-divider.primary-to-white {
-    background: linear-gradient(to bottom, rgba(138, 122, 153, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.fluid-divider.white-to-accent {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(247, 243, 245, 0.3) 100%);
-}
-
-.fluid-divider.accent-to-primary {
-    background: linear-gradient(to bottom, rgba(247, 243, 245, 0.3) 0%, rgba(138, 122, 153, 0.1) 100%);
-}
-
-.fluid-divider.to-dark {
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(65, 76, 94, 0.2) 50%, rgba(65, 76, 94, 0.8) 100%);
-}
-
-/* Floating elements that create fluid movement */
+/* ===== Floating Elements ===== */
 .fluid-float {
     position: absolute;
     border-radius: 50%;
@@ -581,77 +446,14 @@ body::before {
     animation-delay: 5s;
 }
 
-@keyframes floatAnimation {
+/* ===== Animations ===== */
+@keyframes subtleFloat {
     0% {
-        transform: translate(0, 0);
+        background-position: 0% 0%;
     }
     100% {
-        transform: translate(100px, 50px);
+        background-position: 100% 100%;
     }
-}
-
-/* Cards with soft shadows and no hard borders */
-.soft-card {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-    overflow: hidden;
-    position: relative;
-}
-
-.soft-card::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
-    z-index: 1;
-    pointer-events: none;
-}
-
-.soft-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-}
-
-/* Footer with gradient background */
-#site-footer {
-    position: relative;
-    overflow: hidden;
-}
-
-#site-footer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50vw;
-    width: 200vw;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(65, 76, 94, 0.98) 0%, rgba(44, 62, 80, 1) 100%);
-    z-index: -1;
-}
-
-/* Animated subtle background movement */
-.animated-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-    opacity: 0.2;
-    background: linear-gradient(45deg, 
-        rgba(138, 122, 153, 0.05) 0%, 
-        rgba(213, 195, 206, 0.05) 25%,
-        rgba(247, 243, 245, 0.05) 50%,
-        rgba(213, 195, 206, 0.05) 75%,
-        rgba(138, 122, 153, 0.05) 100%);
-    background-size: 400% 400%;
-    animation: gradientMovement 15s ease infinite;
 }
 
 @keyframes gradientMovement {
@@ -663,5 +465,14 @@ body::before {
     }
     100% {
         background-position: 0% 50%;
+    }
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100px, 50px);
     }
 }
