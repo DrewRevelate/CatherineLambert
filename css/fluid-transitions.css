@@ -1,0 +1,252 @@
+/* 
+ * Fluid Transitions - No Hard Lines
+ * Catherine Lambert Therapy Website
+ */
+
+/* Base page setup with smooth gradient background */
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, var(--background-light) 0%, var(--background) 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Subtle animated background pattern */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 50% 50%, rgba(157, 137, 170, 0.02) 0%, rgba(157, 137, 170, 0) 75%);
+    background-size: 100px 100px;
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: -1;
+    animation: subtleFloat 15s infinite alternate ease-in-out;
+}
+
+@keyframes subtleFloat {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
+
+/* Fluid section transitions - no hard lines */
+.fluid-section {
+    position: relative;
+    padding: 6rem 0;
+    margin: 0;
+    background: transparent;
+    z-index: 1;
+}
+
+/* Gradient overlays for sections */
+.fluid-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50vw; /* Extend beyond the viewport */
+    width: 200vw; /* Cover the entire viewport width plus extra */
+    height: 100%;
+    background: var(--section-gradient);
+    opacity: var(--section-opacity, 0.8);
+    z-index: -1;
+    transform: var(--section-transform, skewY(0deg));
+    transform-origin: center;
+    transition: opacity 0.5s ease;
+}
+
+/* Section types with different gradients */
+.fluid-section.primary {
+    --section-gradient: radial-gradient(ellipse at center, rgba(138, 122, 153, 0.15) 0%, rgba(255, 255, 255, 0) 70%);
+    --section-opacity: 1;
+}
+
+.fluid-section.secondary {
+    --section-gradient: linear-gradient(135deg, rgba(213, 195, 206, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+    --section-opacity: 1;
+}
+
+.fluid-section.accent {
+    --section-gradient: radial-gradient(circle at center, rgba(247, 243, 245, 0.7) 0%, rgba(255, 255, 255, 0) 100%);
+    --section-transform: skewY(-2deg);
+}
+
+.fluid-section.accent .container {
+    transform: skewY(2deg); /* Counter the skew for content */
+}
+
+.fluid-section.dark {
+    --section-gradient: linear-gradient(to bottom, rgba(65, 76, 94, 0.95) 0%, rgba(44, 62, 80, 1) 100%);
+    color: var(--white);
+}
+
+/* Hero section with fluid overlay */
+.hero {
+    background-image: url('../images/hero_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(65, 76, 94, 0.8) 0%, rgba(65, 76, 94, 0.5) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fluid divider - creates a soft transition between sections */
+.fluid-divider {
+    height: 150px;
+    position: relative;
+    margin: -75px 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.fluid-divider.primary-to-white {
+    background: linear-gradient(to bottom, rgba(138, 122, 153, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.fluid-divider.white-to-accent {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(247, 243, 245, 0.3) 100%);
+}
+
+.fluid-divider.accent-to-primary {
+    background: linear-gradient(to bottom, rgba(247, 243, 245, 0.3) 0%, rgba(138, 122, 153, 0.1) 100%);
+}
+
+.fluid-divider.to-dark {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(65, 76, 94, 0.2) 50%, rgba(65, 76, 94, 0.8) 100%);
+}
+
+/* Floating elements that create fluid movement */
+.fluid-float {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.03;
+    filter: blur(40px);
+    background: var(--primary-light);
+    z-index: -1;
+    animation: floatAnimation 20s infinite alternate ease-in-out;
+}
+
+.fluid-float.one {
+    width: 400px;
+    height: 400px;
+    top: -200px;
+    right: -200px;
+    animation-duration: 15s;
+}
+
+.fluid-float.two {
+    width: 300px;
+    height: 300px;
+    bottom: -150px;
+    left: -150px;
+    animation-duration: 18s;
+    animation-delay: 5s;
+}
+
+@keyframes floatAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(100px, 50px);
+    }
+}
+
+/* Cards with soft shadows and no hard borders */
+.soft-card {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    overflow: hidden;
+    position: relative;
+}
+
+.soft-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.soft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+/* Footer with gradient background */
+#site-footer {
+    position: relative;
+    overflow: hidden;
+}
+
+#site-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50vw;
+    width: 200vw;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(65, 76, 94, 0.98) 0%, rgba(44, 62, 80, 1) 100%);
+    z-index: -1;
+}
+
+/* Animated subtle background movement */
+.animated-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    opacity: 0.2;
+    background: linear-gradient(45deg, 
+        rgba(138, 122, 153, 0.05) 0%, 
+        rgba(213, 195, 206, 0.05) 25%,
+        rgba(247, 243, 245, 0.05) 50%,
+        rgba(213, 195, 206, 0.05) 75%,
+        rgba(138, 122, 153, 0.05) 100%);
+    background-size: 400% 400%;
+    animation: gradientMovement 15s ease infinite;
+}
+
+@keyframes gradientMovement {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
