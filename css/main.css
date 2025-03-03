@@ -1,26 +1,26 @@
 /* 
- * Main Stylesheet - Modern Calm Design
+ * Main Stylesheet - Fluid Design
  * Catherine Lambert Therapy Website
  */
 
 /* ===== Color Variables ===== */
 :root {
-    --primary: #8a7a99;      /* Deeper muted lavender */
-    --primary-light: #b6a5c9; /* Adjusted lavender */
-    --secondary: #d5c3ce;    /* Muted dusty rose */
+    --primary: #8a7a99;      /* Muted lavender */
+    --primary-light: #b6a5c9; /* Light lavender */
+    --secondary: #d5c3ce;    /* Soft dusty rose */
     --accent: #f7f3f5;       /* Very light pink/off-white */
-    --dark: #414c5e;         /* Deeper blue-gray */
-    --text: #4a4a4a;         /* Darker gray for better readability */
+    --dark: #414c5e;         /* Deep blue-gray */
+    --text: #4a4a4a;         /* Dark gray for readability */
     --text-light: #777777;   /* Medium gray */
-    --background: #fbfbfb;   /* Subtle off-white */
+    --background: #fcfcfc;   /* Off-white */
+    --background-light: #ffffff; /* Pure white */
     --white: #ffffff;        /* Pure white */
-    --border: #ebebeb;       /* Very light gray */
+    --shadow: rgba(0, 0, 0, 0.05); /* Soft shadow */
     --success: #7fb895;      /* Soft sage green */
-    --shadow: rgba(0, 0, 0, 0.05); /* Lighter shadow */
     
-    /* Updated gradients */
-    --gradient-primary: linear-gradient(to right, rgba(138, 122, 153, 0.9), rgba(182, 165, 201, 0.8));
-    --gradient-secondary: linear-gradient(to right, rgba(213, 195, 206, 0.8), rgba(247, 243, 245, 0.9));
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, rgba(138, 122, 153, 0.9) 0%, rgba(182, 165, 201, 0.8) 100%);
+    --gradient-secondary: linear-gradient(135deg, rgba(213, 195, 206, 0.8) 0%, rgba(247, 243, 245, 0.9) 100%);
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -40,7 +40,6 @@ body {
     font-size: 16px;
     line-height: 1.7;
     color: var(--text);
-    background-color: var(--background);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -62,23 +61,25 @@ h2 {
     position: relative;
 }
 
+/* Replace hard line with gradient fade */
 h2:after {
     content: '';
     position: absolute;
     bottom: -0.7rem;
     left: 0;
     width: 3rem;
-    height: 1px; /* Thinner line */
-    background-color: var(--primary);
-    opacity: 0.6; /* More subtle */
+    height: 3px; 
+    background: linear-gradient(to right, var(--primary) 0%, rgba(138, 122, 153, 0) 100%);
+    border-radius: 3px;
 }
 
-.section-content h2:after,
+.text-center h2:after,
+.section-content.text-center h2:after,
 .testimonial-section h2:after,
-.cta-section h2:after,
-.section-header h2:after {
+.cta-section h2:after {
     left: 50%;
     transform: translateX(-50%);
+    background: linear-gradient(to right, rgba(138, 122, 153, 0) 0%, var(--primary) 50%, rgba(138, 122, 153, 0) 100%);
 }
 
 h3 {
@@ -109,11 +110,9 @@ img {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem 0;
-}
-
-section {
+    padding: 3rem 0;
     position: relative;
+    z-index: 2;
 }
 
 /* ===== Header & Navigation ===== */
@@ -122,16 +121,17 @@ section {
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Softer shadow */
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
     z-index: 1000;
     padding: 1rem 0;
     transition: all 0.3s ease;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.03);
 }
 
 #site-header.scrolled {
     padding: 0.7rem 0;
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .header-container {
@@ -199,16 +199,18 @@ section {
     color: var(--primary);
 }
 
+/* Replace underline with gradient */
 #main-nav a:after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 0;
-    height: 1px;
-    background-color: var(--primary);
+    height: 2px;
+    background: linear-gradient(to right, var(--primary) 0%, var(--primary-light) 100%);
     transition: width 0.4s ease;
     opacity: 0.7;
+    border-radius: 2px;
 }
 
 #main-nav a:hover:after,
@@ -226,7 +228,6 @@ section {
 }
 
 .nav-btn:hover {
-    background: var(--primary);
     transform: translateY(-2px);
     box-shadow: 0 5px 15px rgba(138, 122, 153, 0.2);
 }
@@ -247,14 +248,13 @@ section {
     background-color: var(--dark);
     margin: 5px 0;
     transition: all 0.3s ease;
+    border-radius: 2px;
 }
 
 /* ===== Hero Section ===== */
 .hero {
     height: 85vh;
     min-height: 600px;
-    background-size: cover;
-    background-position: center;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -272,12 +272,14 @@ section {
 .hero h1 {
     color: var(--white);
     margin-bottom: 1.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .hero .subtitle {
     font-size: 1.25rem;
     margin-bottom: 2.5rem;
     font-weight: 300;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .hero-buttons {
@@ -302,24 +304,24 @@ section {
 .btn-primary {
     background: var(--gradient-primary);
     color: var(--white);
-    box-shadow: 0 4px 12px rgba(138, 122, 153, 0.15);
+    box-shadow: 0 5px 15px rgba(138, 122, 153, 0.2);
 }
 
 .btn-primary:hover {
-    background: var(--primary);
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 6px 15px rgba(138, 122, 153, 0.25);
+    box-shadow: 0 8px 20px rgba(138, 122, 153, 0.3);
 }
 
 .btn-secondary {
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(5px);
     color: var(--white);
-    border: 1px solid var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.25);
     color: var(--white);
     transform: translateY(-2px);
 }
@@ -367,11 +369,17 @@ section {
     justify-content: center;
 }
 
+/* Replace border with soft shadow and gradient */
 .image-frame {
     position: relative;
-    border: 10px solid var(--white);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
     max-width: 400px;
+    overflow: hidden;
+}
+
+.image-frame img {
+    border-radius: 20px;
 }
 
 .image-frame:before {
@@ -381,10 +389,8 @@ section {
     left: -20px;
     width: 100px;
     height: 100px;
-    border-top: 1px solid var(--primary-light);
-    border-left: 1px solid var(--primary-light);
+    background: radial-gradient(circle at top left, rgba(182, 165, 201, 0.2) 0%, rgba(182, 165, 201, 0) 70%);
     z-index: -1;
-    opacity: 0.7;
 }
 
 .image-frame:after {
@@ -394,10 +400,8 @@ section {
     right: -20px;
     width: 100px;
     height: 100px;
-    border-bottom: 1px solid var(--primary-light);
-    border-right: 1px solid var(--primary-light);
+    background: radial-gradient(circle at bottom right, rgba(182, 165, 201, 0.2) 0%, rgba(182, 165, 201, 0) 70%);
     z-index: -1;
-    opacity: 0.7;
 }
 
 .intro-text {
@@ -416,10 +420,9 @@ section {
     margin-bottom: 3rem;
 }
 
+/* Use soft-card class from fluid-transitions.css */
 .service-card {
     padding: 2.5rem 2rem;
-    border-radius: 10px;
-    transition: all 0.4s ease;
 }
 
 .service-icon {
@@ -432,6 +435,7 @@ section {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
+    box-shadow: 0 5px 15px rgba(138, 122, 153, 0.15);
 }
 
 .service-icon i {
@@ -516,11 +520,13 @@ section {
 .page-header {
     padding: 7rem 0 3rem;
     margin-top: 80px;
+    position: relative;
 }
 
 .page-header h1 {
     color: var(--white);
     margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .breadcrumbs {
@@ -553,8 +559,8 @@ section {
 }
 
 .about-image img {
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
 }
 
 .experience-badge {
@@ -568,9 +574,9 @@ section {
     border-radius: 50%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .experience-badge .years {
@@ -578,14 +584,12 @@ section {
     font-weight: 600;
     line-height: 1;
     margin-bottom: 0.3rem;
-    align-items: right;
 }
 
 .experience-badge .text {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    align-items: right;
 }
 
 .intro-paragraph {
@@ -597,24 +601,36 @@ section {
     margin-bottom: 1.5rem;
 }
 
-.credentials-grid {
+.credentials-grid,
+.philosophy-principles {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.credential-card {
+/* Apply soft-card styles to various cards */
+.credential-card,
+.principle,
+.method-card,
+.info-card,
+.contact-form-container,
+.timeline-content,
+.detail-item,
+.faq-category {
     padding: 2rem;
-    border-radius: 10px;
 }
 
-.credential-icon {
+.credential-icon,
+.method-icon,
+.info-icon,
+.detail-icon {
     color: var(--primary);
     font-size: 2rem;
     margin-bottom: 1rem;
 }
 
-.credential-card h3 {
+.credential-card h3,
+.principle h3 {
     margin-bottom: 1rem;
     color: var(--dark);
 }
@@ -645,17 +661,8 @@ section {
     text-align: center;
 }
 
-.philosophy-principles {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
 .principle {
     text-align: left;
-    padding: 1.5rem;
-    border-radius: 10px;
 }
 
 .principle h3 {
@@ -666,6 +673,63 @@ section {
 
 .principle p {
     margin-bottom: 0;
+}
+
+/* Timeline with fluid design */
+.process-timeline {
+    max-width: 800px;
+    margin: 3rem auto 0;
+    position: relative;
+}
+
+.process-timeline:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30px;
+    height: 100%;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        rgba(138, 122, 153, 0) 0%, 
+        rgba(138, 122, 153, 0.5) 20%,
+        rgba(138, 122, 153, 0.5) 80%,
+        rgba(138, 122, 153, 0) 100%);
+    z-index: 0;
+}
+
+.timeline-item {
+    padding-left: 80px;
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.timeline-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    z-index: 1;
+    box-shadow: 0 5px 15px rgba(138, 122, 153, 0.2);
+}
+
+.quote-box {
+    background: var(--gradient-primary);
+    color: var(--white);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
 }
 
 /* ===== Footer ===== */
@@ -682,6 +746,8 @@ section {
     max-width: 1200px;
     margin: 0 auto;
     padding-bottom: 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .footer-logo {
@@ -710,15 +776,16 @@ section {
     display: inline-block;
 }
 
+/* Replace underline with gradient */
 .footer-column h3:after {
     content: '';
     position: absolute;
     bottom: -0.5rem;
     left: 0;
     width: 40px;
-    height: 1px;
-    background-color: var(--primary-light);
-    opacity: 0.7;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-light) 0%, rgba(182, 165, 201, 0) 100%);
+    border-radius: 2px;
 }
 
 .footer-links, .footer-contact {
@@ -761,35 +828,15 @@ section {
     padding: 1.5rem 0;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
     font-size: 0.85rem;
+    position: relative;
+    z-index: 2;
 }
 
 .footer-bottom p {
     margin-bottom: 0.5rem;
 }
 
-/* ===== General Helper Classes ===== */
+/* ===== Helper Classes ===== */
 .text-center {
     text-align: center;
-}
-
-.mb-0 {
-    margin-bottom: 0;
-}
-
-.mt-0 {
-    margin-top: 0;
-}
-
-.py-0 {
-    padding-top: 0;
-    padding-bottom: 0;
-}
-
-.py-lg {
-    padding-top: 6rem;
-    padding-bottom: 6rem;
-}
-
-.bg-white {
-    background-color: var(--white);
 }
