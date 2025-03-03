@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catherine Lambert | Mental Health Counseling</title>
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/fluid-animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/fluid-transitions.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/section-transitions.css">
 </head>
 <body>
+    <!-- Subtle animated background -->
+    <div class="animated-bg"></div>
+    
     <header id="site-header">
         <div class="header-container">
             <div class="logo-container">
@@ -44,7 +47,12 @@
     </header>
 
     <main>
-        <section class="hero">
+        <!-- Hero Section -->
+        <section class="hero fluid-section">
+            <!-- Floating elements for subtle movement -->
+            <div class="fluid-float one"></div>
+            <div class="fluid-float two"></div>
+            
             <div class="hero-content">
                 <h1 class="fade-in">Begin Your Journey to Mental Wellness</h1>
                 <p class="subtitle fade-in">Personalized therapy for meaningful change</p>
@@ -54,7 +62,12 @@
                 </div>
             </div>
         </section>
-        <section class="welcome">
+        
+        <!-- Fluid divider instead of hard line -->
+        <div class="fluid-divider primary-to-white"></div>
+
+        <!-- Welcome Section -->
+        <section class="welcome fluid-section">
             <div class="container">
                 <div class="section-content">
                     <h2>Welcome</h2>
@@ -72,14 +85,20 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Floating element for subtle movement -->
+            <div class="fluid-float medium" style="top: 30%; right: 5%; background-color: var(--primary-light);"></div>
         </section>
-        <div class="section-divider white-to-accent"></div>
+        
+        <!-- Fluid divider instead of hard line -->
+        <div class="fluid-divider white-to-accent"></div>
 
-        <section class="featured-services">
+        <!-- Services Section -->
+        <section class="featured-services fluid-section accent">
             <div class="container">
                 <h2>Specialized Services</h2>
                 <div class="services-preview">
-                    <div class="service-card">
+                    <div class="service-card soft-card">
                         <div class="service-icon">
                             <i class="fas fa-user"></i>
                         </div>
@@ -88,7 +107,7 @@
                         <a href="services.html#individual" class="card-link">Learn More</a>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card soft-card">
                         <div class="service-icon">
                             <i class="fas fa-brain"></i>
                         </div>
@@ -97,7 +116,7 @@
                         <a href="services.html#anxiety" class="card-link">Learn More</a>
                     </div>
                     
-                    <div class="service-card">
+                    <div class="service-card soft-card">
                         <div class="service-icon">
                             <i class="fas fa-heart"></i>
                         </div>
@@ -110,8 +129,17 @@
                     <a href="services.html" class="btn btn-primary">View All Services</a>
                 </div>
             </div>
+            
+            <!-- Floating elements for subtle movement -->
+            <div class="fluid-float small" style="bottom: 20%; left: 10%; background-color: var(--primary);"></div>
+            <div class="fluid-float small" style="top: 30%; right: 15%; background-color: var(--secondary);"></div>
         </section>
-        <section class="testimonial-section">
+        
+        <!-- Fluid divider instead of hard line -->
+        <div class="fluid-divider accent-to-primary"></div>
+
+        <!-- Testimonial Section -->
+        <section class="testimonial-section fluid-section primary">
             <div class="container">
                 <div class="testimonial">
                     <div class="quote-mark"><i class="fas fa-quote-left"></i></div>
@@ -120,17 +148,28 @@
                 </div>
             </div>
         </section>
-<div class="section-divider primary-to-accent"></div>
-        <section class="cta-section">
+        
+        <!-- Fluid divider instead of hard line -->
+        <div class="fluid-divider primary-to-white"></div>
+        
+        <!-- CTA Section -->
+        <section class="cta-section fluid-section secondary">
             <div class="container">
                 <h2>Ready to Begin Your Healing Journey?</h2>
                 <p>Take the first step toward mental wellness today.</p>
                 <a href="contact.html" class="btn btn-primary btn-large">Schedule Your Consultation</a>
             </div>
+            
+            <!-- Floating element for subtle movement -->
+            <div class="fluid-float medium" style="bottom: -100px; left: 15%; background-color: var(--primary-light);"></div>
         </section>
+        
+        <!-- Fluid divider to footer -->
+        <div class="fluid-divider to-dark"></div>
     </main>
-</div>
-    <footer id="site-footer">
+
+    <!-- Footer -->
+    <footer id="site-footer" class="fluid-section dark">
         <div class="footer-content">
             <div class="footer-column">
                 <a href="index.html" class="footer-logo">Catherine Lambert</a>
