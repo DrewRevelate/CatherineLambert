@@ -1,0 +1,430 @@
+/* 
+ * Fluid Animations Stylesheet
+ * Catherine Lambert Therapy Website
+ */
+
+/* ===== Animation Keyframes ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        filter: blur(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+        filter: blur(5px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+        filter: blur(0);
+    }
+}
+
+@keyframes pulseGlow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(138, 122, 153, 0.3);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(138, 122, 153, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(138, 122, 153, 0);
+    }
+}
+
+@keyframes floatY {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatX {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes breathe {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes rotateSlowly {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ===== Animation Classes ===== */
+.fade-in {
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+.fade-in-up {
+    animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.fade-in-left {
+    animation: fadeInLeft 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.scale-up {
+    animation: scaleUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.float-y {
+    animation: floatY 6s ease-in-out infinite;
+}
+
+.float-x {
+    animation: floatX 8s ease-in-out infinite;
+}
+
+.breathe {
+    animation: breathe 8s ease-in-out infinite;
+}
+
+.gradient-flow {
+    background-size: 200% 200%;
+    animation: gradientFlow 15s ease infinite;
+}
+
+.rotating {
+    animation: rotateSlowly 20s linear infinite;
+}
+
+/* ===== Animation Delays ===== */
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
+
+.delay-700 {
+    animation-delay: 700ms;
+}
+
+.delay-900 {
+    animation-delay: 900ms;
+}
+
+/* ===== Scroll Animation Classes ===== */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 1.2s, transform 1.2s, filter 1.2s;
+}
+
+.animate-on-scroll.fade-in-visible {
+    opacity: 1;
+}
+
+.animate-on-scroll.fade-up {
+    transform: translateY(30px);
+    filter: blur(5px);
+}
+
+.animate-on-scroll.fade-up-visible {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+}
+
+.animate-on-scroll.fade-left {
+    transform: translateX(-30px);
+    filter: blur(5px);
+}
+
+.animate-on-scroll.fade-left-visible {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+
+.animate-on-scroll.fade-right {
+    transform: translateX(30px);
+    filter: blur(5px);
+}
+
+.animate-on-scroll.fade-right-visible {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+
+.animate-on-scroll.scale {
+    transform: scale(0.92);
+    filter: blur(5px);
+}
+
+.animate-on-scroll.scale-visible {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+/* ===== Element-specific animations ===== */
+.hero h1 {
+    opacity: 0;
+    animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: 300ms;
+}
+
+.hero .subtitle {
+    opacity: 0;
+    animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: 600ms;
+}
+
+.hero-buttons {
+    opacity: 0;
+    animation: fadeInUp 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    animation-delay: 900ms;
+}
+
+/* Service card hover animation */
+.soft-card, .service-card {
+    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.soft-card:hover, .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+}
+
+/* Service icon animations */
+.service-icon {
+    position: relative;
+    transition: all 0.5s ease;
+    overflow: hidden;
+}
+
+.service-icon:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    animation: rotateSlowly 8s linear infinite;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.1);
+}
+
+/* Testimonial fade in */
+.testimonial {
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards;
+}
+
+/* Quote mark animation */
+.quote-mark {
+    animation: floatY 6s ease-in-out infinite;
+}
+
+/* Button hover animation */
+.btn {
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.7s ease;
+    opacity: 0;
+}
+
+.btn:hover:after {
+    opacity: 1;
+    transform: rotate(45deg) translate(100%, 100%);
+}
+
+.nav-btn:hover {
+    animation: pulseGlow 2s infinite;
+}
+
+/* Mobile menu animation */
+.mobile-menu-toggle span {
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* Fluid backgrounds for sections */
+.fluid-section.animated-bg {
+    background-size: 200% 200%;
+    animation: gradientFlow 20s ease infinite;
+}
+
+/* Experience badge pulse */
+.experience-badge {
+    animation: pulseGlow 3s infinite;
+}
+
+/* Image frame subtle animation */
+.image-frame {
+    transition: all 0.5s ease;
+}
+
+.image-frame:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Floating elements for decorative purposes */
+.fluid-float {
+    opacity: 0.5;
+    filter: blur(40px);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+.fluid-float.small {
+    width: 100px;
+    height: 100px;
+    animation: floatY 12s ease-in-out infinite;
+}
+
+.fluid-float.medium {
+    width: 200px;
+    height: 200px;
+    animation: floatX 15s ease-in-out infinite;
+}
+
+.fluid-float.large {
+    width: 300px;
+    height: 300px;
+    animation: floatY 18s ease-in-out infinite;
+}
+
+/* Reduce Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
