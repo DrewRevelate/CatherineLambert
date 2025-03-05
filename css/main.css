@@ -1,26 +1,26 @@
 /* 
- * Main Stylesheet - Fluid Design
+ * Main Stylesheet - Rose-Focused Design
  * Catherine Lambert Therapy Website
  */
 
 /* ===== Color Variables ===== */
 :root {
-    --primary: #8a7a99;      /* Muted lavender */
-    --primary-light: #b6a5c9; /* Light lavender */
-    --secondary: #d5c3ce;    /* Soft dusty rose */
-    --accent: #f7f3f5;       /* Very light pink/off-white */
-    --dark: #414c5e;         /* Deep blue-gray */
-    --text: #4a4a4a;         /* Dark gray for readability */
-    --text-light: #777777;   /* Medium gray */
+    --primary: #d86a8d;      /* Rose pink */
+    --primary-light: #e595ad; /* Light rose */
+    --secondary: #9c8cd3;    /* Purple as secondary */
+    --accent: #f9f2f4;       /* Warm off-white */
+    --dark: #33273a;         /* Deep mauve-purple */
+    --text: #3a3a3a;         /* Dark gray for readability */
+    --text-light: #555555;   /* Medium gray */
     --background: #fcfcfc;   /* Off-white */
     --background-light: #ffffff; /* Pure white */
     --white: #ffffff;        /* Pure white */
-    --shadow: rgba(0, 0, 0, 0.05); /* Soft shadow */
-    --success: #7fb895;      /* Soft sage green */
+    --shadow: rgba(0, 0, 0, 0.08); /* Soft shadow */
+    --success: #5cc489;      /* Soft sage green */
     
     /* Gradients */
-    --gradient-primary: linear-gradient(135deg, rgba(138, 122, 153, 0.9) 0%, rgba(182, 165, 201, 0.8) 100%);
-    --gradient-secondary: linear-gradient(135deg, rgba(213, 195, 206, 0.8) 0%, rgba(247, 243, 245, 0.9) 100%);
+    --gradient-primary: linear-gradient(135deg, rgba(216, 106, 141, 0.95) 0%, rgba(229, 149, 173, 0.85) 100%);
+    --gradient-secondary: linear-gradient(135deg, rgba(156, 140, 211, 0.8) 0%, rgba(216, 106, 141, 0.4) 100%);
 }
 
 /* ===== Reset & Base Styles ===== */
@@ -69,7 +69,7 @@ h2:after {
     left: 0;
     width: 3rem;
     height: 3px; 
-    background: linear-gradient(to right, var(--primary) 0%, rgba(138, 122, 153, 0) 100%);
+    background: linear-gradient(to right, var(--primary) 0%, rgba(216, 106, 141, 0) 100%);
     border-radius: 3px;
 }
 
@@ -79,7 +79,7 @@ h2:after {
 .cta-section h2:after {
     left: 50%;
     transform: translateX(-50%);
-    background: linear-gradient(to right, rgba(138, 122, 153, 0) 0%, var(--primary) 50%, rgba(138, 122, 153, 0) 100%);
+    background: linear-gradient(to right, rgba(216, 106, 141, 0) 0%, var(--primary) 50%, rgba(216, 106, 141, 0) 100%);
 }
 
 h3 {
@@ -229,7 +229,7 @@ img {
 
 .nav-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(138, 122, 153, 0.2);
+    box-shadow: 0 5px 15px rgba(216, 106, 141, 0.2);
 }
 
 .nav-btn:after {
@@ -261,12 +261,29 @@ img {
     text-align: center;
     margin-top: 80px;
     overflow: hidden;
+    background-image: url('../images/hero_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(51, 39, 58, 0.75) 0%, rgba(216, 106, 141, 0.65) 100%);
+    z-index: 1;
 }
 
 .hero-content {
     color: var(--white);
     max-width: 800px;
     padding: 0 2rem;
+    position: relative;
+    z-index: 2;
 }
 
 .hero h1 {
@@ -288,6 +305,29 @@ img {
     gap: 1rem;
 }
 
+/* Highlight span in hero title */
+.hero h1 .highlight {
+    background: linear-gradient(to right, var(--primary-light), var(--white));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    text-shadow: none;
+    position: relative;
+}
+
+.hero h1 .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-light), var(--white));
+    border-radius: 2px;
+    opacity: 0.7;
+}
+
 /* ===== Buttons ===== */
 .btn {
     display: inline-block;
@@ -304,13 +344,13 @@ img {
 .btn-primary {
     background: var(--gradient-primary);
     color: var(--white);
-    box-shadow: 0 5px 15px rgba(138, 122, 153, 0.2);
+    box-shadow: 0 5px 15px rgba(216, 106, 141, 0.2);
 }
 
 .btn-primary:hover {
     color: var(--white);
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(138, 122, 153, 0.3);
+    box-shadow: 0 8px 20px rgba(216, 106, 141, 0.3);
 }
 
 .btn-secondary {
@@ -353,6 +393,10 @@ img {
 }
 
 /* ===== Welcome Section ===== */
+.welcome {
+    background-color: var(--white);
+}
+
 .welcome .container {
     display: flex;
     align-items: center;
@@ -389,7 +433,7 @@ img {
     left: -20px;
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle at top left, rgba(182, 165, 201, 0.2) 0%, rgba(182, 165, 201, 0) 70%);
+    background: radial-gradient(circle at top left, rgba(229, 149, 173, 0.2) 0%, rgba(229, 149, 173, 0) 70%);
     z-index: -1;
 }
 
@@ -400,7 +444,7 @@ img {
     right: -20px;
     width: 100px;
     height: 100px;
-    background: radial-gradient(circle at bottom right, rgba(182, 165, 201, 0.2) 0%, rgba(182, 165, 201, 0) 70%);
+    background: radial-gradient(circle at bottom right, rgba(229, 149, 173, 0.2) 0%, rgba(229, 149, 173, 0) 70%);
     z-index: -1;
 }
 
@@ -413,6 +457,10 @@ img {
 }
 
 /* ===== Featured Services ===== */
+.featured-services {
+    background-color: var(--accent);
+}
+
 .services-preview {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -420,9 +468,22 @@ img {
     margin-bottom: 3rem;
 }
 
-/* Use soft-card class from fluid-transitions.css */
 .service-card {
+    background-color: var(--white);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 10px;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     padding: 2.5rem 2rem;
+    border-top: 4px solid var(--primary-light);
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(216, 106, 141, 0.15);
 }
 
 .service-icon {
@@ -435,7 +496,7 @@ img {
     align-items: center;
     justify-content: center;
     margin: 0 auto 1.5rem;
-    box-shadow: 0 5px 15px rgba(138, 122, 153, 0.15);
+    box-shadow: 0 5px 15px rgba(216, 106, 141, 0.15);
 }
 
 .service-icon i {
@@ -449,6 +510,7 @@ img {
 .service-card p {
     margin-bottom: 1.5rem;
     color: var(--text-light);
+    flex-grow: 1;
 }
 
 .card-link {
@@ -456,6 +518,8 @@ img {
     font-weight: 500;
     color: var(--primary);
     position: relative;
+    margin-top: auto;
+    padding-right: 1.5rem;
 }
 
 .card-link:after {
@@ -465,13 +529,26 @@ img {
     font-size: 0.8rem;
     margin-left: 0.5rem;
     transition: transform 0.4s ease;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .card-link:hover:after {
-    transform: translateX(3px);
+    transform: translate(3px, -50%);
+}
+
+.services-cta {
+    margin-top: 1rem;
+    text-align: center;
 }
 
 /* ===== Testimonial Section ===== */
+.testimonial-section {
+    background: var(--gradient-primary);
+}
+
 .testimonial {
     max-width: 800px;
     margin: 0 auto;
@@ -492,21 +569,39 @@ img {
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     margin-bottom: 1.5rem;
+    color: var(--white);
 }
 
 .testimonial-author {
     font-size: 0.9rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 /* ===== CTA Section ===== */
 .cta-section {
     text-align: center;
     padding: 4rem 0;
+    background: linear-gradient(135deg, rgba(242, 233, 237, 1) 0%, rgba(255, 247, 250, 1) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d86a8d' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: -1;
 }
 
 .cta-section h2 {
+    color: var(--primary);
     margin-bottom: 1rem;
 }
 
@@ -521,6 +616,7 @@ img {
     padding: 7rem 0 3rem;
     margin-top: 80px;
     position: relative;
+    background: var(--gradient-primary);
 }
 
 .page-header h1 {
@@ -547,195 +643,11 @@ img {
     margin: 0 0.5rem;
 }
 
-/* ===== About Page ===== */
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 4rem;
-}
-
-.about-image {
-    position: relative;
-}
-
-.about-image img {
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
-}
-
-.experience-badge {
-    position: absolute;
-    bottom: -25px;
-    right: -25px;
-    width: 120px;
-    height: 120px;
-    background: var(--gradient-primary);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.experience-badge .years {
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1;
-    margin-bottom: 0.3rem;
-}
-
-.experience-badge .text {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-}
-
-.intro-paragraph {
-    font-size: 1.2rem;
-    color: var(--primary);
-    line-height: 1.8;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    margin-bottom: 1.5rem;
-}
-
-.credentials-grid,
-.philosophy-principles {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-/* Apply soft-card styles to various cards */
-.credential-card,
-.principle,
-.method-card,
-.info-card,
-.contact-form-container,
-.timeline-content,
-.detail-item,
-.faq-category {
-    padding: 2rem;
-}
-
-.credential-icon,
-.method-icon,
-.info-icon,
-.detail-icon {
-    color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.credential-card h3,
-.principle h3 {
-    margin-bottom: 1rem;
-    color: var(--dark);
-}
-
-.credential-card ul {
-    list-style-type: none;
-}
-
-.credential-card li {
-    margin-bottom: 0.7rem;
-    position: relative;
-    padding-left: 1.5rem;
-}
-
-.credential-card li:before {
-    content: '\f058';
-    font-family: 'Font Awesome 5 Free';
-    font-weight: 900;
-    color: var(--primary);
-    position: absolute;
-    left: 0;
-    opacity: 0.7;
-}
-
-.philosophy-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.principle {
-    text-align: left;
-}
-
-.principle h3 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: var(--primary);
-}
-
-.principle p {
-    margin-bottom: 0;
-}
-
-/* Timeline with fluid design */
-.process-timeline {
-    max-width: 800px;
-    margin: 3rem auto 0;
-    position: relative;
-}
-
-.process-timeline:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 30px;
-    height: 100%;
-    width: 2px;
-    background: linear-gradient(to bottom, 
-        rgba(138, 122, 153, 0) 0%, 
-        rgba(138, 122, 153, 0.5) 20%,
-        rgba(138, 122, 153, 0.5) 80%,
-        rgba(138, 122, 153, 0) 100%);
-    z-index: 0;
-}
-
-.timeline-item {
-    padding-left: 80px;
-    position: relative;
-    margin-bottom: 3rem;
-}
-
-.timeline-number {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 60px;
-    height: 60px;
-    background: var(--gradient-primary);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 600;
-    z-index: 1;
-    box-shadow: 0 5px 15px rgba(138, 122, 153, 0.2);
-}
-
-.quote-box {
-    background: var(--gradient-primary);
-    color: var(--white);
-    padding: 3rem;
-    border-radius: 20px;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-}
-
 /* ===== Footer ===== */
 #site-footer {
     color: rgba(255, 255, 255, 0.7);
     padding: 4rem 0 0;
+    background: linear-gradient(135deg, rgba(51, 39, 58, 0.98) 0%, rgba(37, 28, 42, 1) 100%);
 }
 
 .footer-content {
@@ -776,7 +688,6 @@ img {
     display: inline-block;
 }
 
-/* Replace underline with gradient */
 .footer-column h3:after {
     content: '';
     position: absolute;
@@ -784,7 +695,7 @@ img {
     left: 0;
     width: 40px;
     height: 2px;
-    background: linear-gradient(to right, var(--primary-light) 0%, rgba(182, 165, 201, 0) 100%);
+    background: linear-gradient(to right, var(--primary-light) 0%, rgba(229, 149, 173, 0) 100%);
     border-radius: 2px;
 }
 
