@@ -1,0 +1,175 @@
+/* 
+ * Rose-Focused Theme
+ * Catherine Lambert Therapy Website
+ */
+
+/* ===== Updated Color Variables ===== */
+:root {
+    --primary: #d86a8d;      /* Rose pink as primary */
+    --primary-light: #e595ad; /* Light rose */
+    --secondary: #9c8cd3;    /* Purple demoted to secondary */
+    --accent: #f9f2f4;       /* Warm off-white (kept) */
+    --dark: #33273a;         /* Deep mauve-purple */
+    --text: #3a3a3a;         /* Kept */
+    --text-light: #555555;   /* Kept */
+    --background: #fcfcfc;   /* Kept */
+    --background-light: #ffffff; /* Kept */
+    --white: #ffffff;        /* Kept */
+    --shadow: rgba(0, 0, 0, 0.08); /* Kept */
+    --success: #5cc489;      /* Kept */
+    
+    /* Updated Gradients */
+    --gradient-primary: linear-gradient(135deg, rgba(216, 106, 141, 0.95) 0%, rgba(229, 149, 173, 0.85) 100%);
+    --gradient-secondary: linear-gradient(135deg, rgba(156, 140, 211, 0.8) 0%, rgba(216, 106, 141, 0.4) 100%);
+}
+
+/* ===== Rose-themed Service Icons ===== */
+.service-icon {
+    background: var(--gradient-primary);
+    box-shadow: 0 8px 20px rgba(216, 106, 141, 0.25);
+}
+
+/* ===== Update button styles ===== */
+.btn-primary {
+    background: var(--gradient-primary);
+    box-shadow: 0 8px 20px rgba(216, 106, 141, 0.25);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 12px 25px rgba(216, 106, 141, 0.35);
+}
+
+/* ===== Highlight in hero ===== */
+.hero h1 .highlight {
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+}
+
+.hero h1 .highlight::after {
+    background: linear-gradient(to right, var(--primary), var(--primary-light));
+}
+
+/* ===== Section colors ===== */
+.testimonial-section.fluid-section.primary {
+    background: linear-gradient(135deg, rgba(165, 70, 105, 0.95) 0%, rgba(216, 106, 141, 0.9) 100%);
+}
+
+/* ===== Redesigned CTA Section ===== */
+.cta-section.fluid-section.secondary {
+    background: linear-gradient(135deg, rgba(242, 233, 237, 1) 0%, rgba(255, 247, 250, 1) 100%);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d86a8d' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.cta-section h2 {
+    color: var(--primary);
+    position: relative;
+    display: inline-block;
+}
+
+.cta-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -0.7rem;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary) 0%, rgba(216, 106, 141, 0.3) 100%);
+    border-radius: 3px;
+}
+
+.cta-section p {
+    color: var(--text);
+    font-size: 1.2rem;
+}
+
+.cta-section .btn-primary {
+    padding: 1.2rem 3rem;
+    font-size: 1.15rem;
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.cta-decoration {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(216, 106, 141, 0.1) 0%, rgba(216, 106, 141, 0) 70%);
+    z-index: 1;
+}
+
+.cta-decoration:nth-child(1) {
+    top: -50px;
+    left: -50px;
+    width: 300px;
+    height: 300px;
+}
+
+.cta-decoration:nth-child(2) {
+    bottom: -50px;
+    right: -50px;
+    width: 250px;
+    height: 250px;
+}
+
+/* ===== Update divider colors ===== */
+.fluid-divider.primary-to-white::before {
+    background: linear-gradient(to bottom, rgba(216, 106, 141, 0.8) 0%, rgba(216, 106, 141, 0.4) 30%, rgba(255, 255, 255, 0) 100%);
+}
+
+.fluid-divider.accent-to-primary::before {
+    background: linear-gradient(to bottom, rgba(249, 242, 244, 0.6) 0%, rgba(229, 149, 173, 0.6) 50%, rgba(216, 106, 141, 0.8) 100%);
+}
+
+.fluid-divider.to-dark::before {
+    background: linear-gradient(to bottom, 
+        rgba(249, 242, 244, 0.8) 0%, 
+        rgba(216, 106, 141, 0.2) 40%,
+        rgba(51, 39, 58, 0.95) 90%, 
+        rgba(51, 39, 58, 1) 100%);
+}
+
+/* ===== Update atmosphere colors ===== */
+.atmosphere-circle {
+    background: radial-gradient(circle, rgba(229, 149, 173, 0.15) 0%, rgba(229, 149, 173, 0) 70%);
+}
+
+/* ===== Update footer colors ===== */
+#site-footer::before {
+    background: linear-gradient(135deg, rgba(51, 39, 58, 0.98) 0%, rgba(37, 28, 42, 1) 100%);
+}
+
+.footer-tagline {
+    color: var(--primary-light);
+}
+
+/* ===== Service card border ===== */
+.service-card {
+    border-top-color: var(--primary-light);
+}
+
+.service-card:hover {
+    box-shadow: 0 15px 40px rgba(216, 106, 141, 0.15);
+}
