@@ -19,6 +19,7 @@
             background-size: cover;
             background-position: center;
             position: relative;
+            padding: 8rem 0 4rem;
         }
         
         .page-header::after {
@@ -37,11 +38,21 @@
             z-index: 1;
         }
         
+        /* About intro section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: minmax(300px, 1fr) 2fr;
+            gap: 3rem;
+            align-items: start;
+        }
+        
         .about-image {
             position: relative;
             border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(216, 106, 141, 0.15);
+            max-width: 400px;
+            margin: 0 auto;
         }
         
         .about-image img {
@@ -51,16 +62,12 @@
             transition: transform 0.5s ease;
         }
         
-        .about-image:hover img {
-            transform: scale(1.02);
-        }
-        
         .experience-badge {
             position: absolute;
-            bottom: -25px;
-            right: -25px;
-            width: 120px;
-            height: 120px;
+            bottom: 20px;
+            right: 20px;
+            width: 110px;
+            height: 110px;
             background: var(--gradient-primary);
             color: var(--white);
             border-radius: 50%;
@@ -84,9 +91,26 @@
             }
         }
         
+        /* Credentials section */
+        .credentials {
+            background-color: #f9f6f7; /* Very light rose tint */
+            padding: 4rem 0;
+        }
+        
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
         .credential-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             border-top: 4px solid var(--primary-light);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
+            height: 100%;
         }
         
         .credential-card:hover {
@@ -101,9 +125,47 @@
             opacity: 0.9;
         }
         
+        .credential-card ul {
+            padding-left: 1.5rem;
+        }
+        
+        .credential-card li {
+            margin-bottom: 0.7rem;
+            position: relative;
+        }
+        
+        .credential-card li:before {
+            content: '✓';
+            color: var(--primary);
+            position: absolute;
+            left: -1.5rem;
+        }
+        
+        /* Philosophy section */
+        .philosophy {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+        
+        .philosophy-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .philosophy-principles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
         .principle {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
             border-left: 4px solid var(--primary-light);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
+            height: 100%;
         }
         
         .principle:hover {
@@ -113,11 +175,41 @@
         
         .principle h3 {
             color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* CTA section */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(242, 233, 237, 1) 0%, rgba(255, 247, 250, 1) 100%);
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
         }
         
         .about-content .intro-paragraph {
             font-size: 1.3rem;
             color: var(--primary);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                margin-bottom: 3rem;
+            }
+            
+            .philosophy-principles {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -211,6 +303,8 @@
                         <ul>
                             <li>Licensed Mental Health Counselor (LMHC)</li>
                             <li>National Certified Counselor (NCC)</li>
+                            <li>Member, American Counseling Association</li>
+                            <li>Certified Clinical Trauma Professional</li>
                         </ul>
                     </div>
                     
@@ -223,6 +317,7 @@
                             <li>Certified in Cognitive Behavioral Therapy</li>
                             <li>Trauma-Focused Therapy Certification</li>
                             <li>Mindfulness-Based Stress Reduction Training</li>
+                            <li>Advanced Training in Relationship Counseling</li>
                         </ul>
                     </div>
                 </div>
