@@ -63,125 +63,89 @@
             </div>
         </section>
         
-        <section class="services-carousel">
+        <section class="services-list">
             <div class="container">
                 <div class="section-content text-center">
                     <h2>Therapeutic Services</h2>
-                    <p class="intro-text">Evidence-based approaches tailored to your unique needs and goals.</p>
+                    <p>Click on any service to learn more about how I can help you on your journey to mental wellness.</p>
                 </div>
                 
-                <div class="carousel-container">
-                    <div class="carousel-main">
-                        <div class="carousel-items">
-                            <!-- Items will be populated with JavaScript -->
-                        </div>
-                        <button class="carousel-nav prev" aria-label="Previous service"><i class="fas fa-chevron-left"></i></button>
-                        <button class="carousel-nav next" aria-label="Next service"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                    
-                    <div class="carousel-indicators">
-                        <!-- Indicators will be populated with JavaScript -->
-                    </div>
-                    
-                    <div class="carousel-actions">
-                        <button class="btn btn-secondary view-all-btn">View All Services</button>
-                    </div>
-                </div>
-                
-                <div class="services-grid hidden">
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/services/individual-therapy.jpg" alt="Individual Therapy">
-                        </div>
-                        <div class="service-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Individual Therapy</h3>
-                            <p>One-on-one sessions designed to address your specific challenges, goals, and growth.</p>
-                            <div class="service-cta">
-                                <a href="#individual" class="btn btn-primary">Learn More</a>
+                <div class="services-grid">
+                    <div class="service-card" data-service="individual">
+                        <div class="service-icon-container">
+                            <div class="service-icon animate-shimmer">
+                                <i class="fas fa-user"></i>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/services/anxiety.jpg" alt="Anxiety Management">
-                        </div>
-                        <div class="service-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Anxiety Management</h3>
-                            <p>Develop practical techniques to manage anxiety and build resilience against stress.</p>
-                            <div class="service-cta">
-                                <a href="#anxiety" class="btn btn-primary">Learn More</a>
-                            </div>
+                        <h3>Individual Therapy</h3>
+                        <p>One-on-one sessions designed to address your specific challenges, goals, and growth.</p>
+                        <div class="service-cta">
+                            <span class="btn btn-primary btn-small">Learn More</span>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/services/depression.jpg" alt="Depression Treatment">
-                        </div>
-                        <div class="service-icon">
-                            <i class="fas fa-cloud-rain"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Depression Treatment</h3>
-                            <p>Find your way through depression with compassionate support and evidence-based strategies.</p>
-                            <div class="service-cta">
-                                <a href="#depression" class="btn btn-primary">Learn More</a>
+                    <div class="service-card" data-service="anxiety">
+                        <div class="service-icon-container">
+                            <div class="service-icon animate-shimmer">
+                                <i class="fas fa-brain"></i>
                             </div>
+                        </div>
+                        <h3>Anxiety Management</h3>
+                        <p>Develop practical techniques to manage anxiety and build resilience against stress.</p>
+                        <div class="service-cta">
+                            <span class="btn btn-primary btn-small">Learn More</span>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/services/trauma.jpg" alt="Trauma Recovery">
-                        </div>
-                        <div class="service-icon">
-                            <i class="fas fa-heart-broken"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Trauma Recovery</h3>
-                            <p>Process traumatic experiences in a safe environment and develop resilience.</p>
-                            <div class="service-cta">
-                                <a href="#trauma" class="btn btn-primary">Learn More</a>
+                    <div class="service-card" data-service="depression">
+                        <div class="service-icon-container">
+                            <div class="service-icon animate-shimmer">
+                                <i class="fas fa-cloud-rain"></i>
                             </div>
+                        </div>
+                        <h3>Depression Treatment</h3>
+                        <p>Find your way through depression with compassionate support and evidence-based strategies.</p>
+                        <div class="service-cta">
+                            <span class="btn btn-primary btn-small">Learn More</span>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/services/relationships.jpg" alt="Relationship Counseling">
-                        </div>
-                        <div class="service-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Relationship Counseling</h3>
-                            <p>Improve communication, resolve conflicts, and strengthen your connections.</p>
-                            <div class="service-cta">
-                                <a href="#relationships" class="btn btn-primary">Learn More</a>
+                    <div class="service-card" data-service="trauma">
+                        <div class="service-icon-container">
+                            <div class="service-icon animate-shimmer">
+                                <i class="fas fa-heart-broken"></i>
                             </div>
+                        </div>
+                        <h3>Trauma Recovery</h3>
+                        <p>Process traumatic experiences in a safe environment and develop resilience.</p>
+                        <div class="service-cta">
+                            <span class="btn btn-primary btn-small">Learn More</span>
                         </div>
                     </div>
                     
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="images/services/grief.jpg" alt="Grief Counseling">
-                        </div>
-                        <div class="service-icon">
-                            <i class="fas fa-leaf"></i>
-                        </div>
-                        <div class="service-content">
-                            <h3>Grief Counseling</h3>
-                            <p>Navigate loss with compassionate guidance while honoring your experience.</p>
-                            <div class="service-cta">
-                                <a href="#grief" class="btn btn-primary">Learn More</a>
+                    <div class="service-card" data-service="relationships">
+                        <div class="service-icon-container">
+                            <div class="service-icon animate-shimmer">
+                                <i class="fas fa-users"></i>
                             </div>
+                        </div>
+                        <h3>Relationship Counseling</h3>
+                        <p>Improve communication, resolve conflicts, and strengthen your connections.</p>
+                        <div class="service-cta">
+                            <span class="btn btn-primary btn-small">Learn More</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card" data-service="grief">
+                        <div class="service-icon-container">
+                            <div class="service-icon animate-shimmer">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                        </div>
+                        <h3>Grief Counseling</h3>
+                        <p>Navigate loss with compassionate guidance while honoring your experience.</p>
+                        <div class="service-cta">
+                            <span class="btn btn-primary btn-small">Learn More</span>
                         </div>
                     </div>
                 </div>
@@ -219,108 +183,6 @@
                         <h4>Progress & Growth</h4>
                         <p>We'll regularly assess your progress, celebrate successes, and make adjustments to ensure your therapy journey remains aligned with your evolving needs.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="services-detail" id="individual">
-            <div class="container">
-                <h2>Service Details</h2>
-                
-                <div class="service-item">
-                    <h3>Individual Therapy</h3>
-                    <p>One-on-one sessions designed to address your specific challenges, goals, and growth. We'll work together to develop effective strategies for overcoming obstacles and improving overall well-being.</p>
-                    
-                    <h4>This service is ideal for those experiencing:</h4>
-                    <ul>
-                        <li>Life transitions and adjustment difficulties</li>
-                        <li>Stress management challenges</li>
-                        <li>Self-esteem and identity concerns</li>
-                        <li>Personal growth and self-exploration</li>
-                    </ul>
-                    
-                    <h4>What to expect:</h4>
-                    <p>Individual therapy typically begins with an assessment of your current concerns and goals. Together, we'll develop a personalized treatment plan that incorporates evidence-based techniques suited to your needs. Sessions are generally held weekly, with adjustments made as progress continues.</p>
-                </div>
-                
-                <div class="service-item" id="anxiety">
-                    <h3>Anxiety Management</h3>
-                    <p>Develop practical techniques to manage anxiety and reduce its impact on your daily life. Learn to recognize triggers, challenge anxious thoughts, and build resilience against stress.</p>
-                    
-                    <h4>This service addresses:</h4>
-                    <ul>
-                        <li>Generalized anxiety and persistent worry</li>
-                        <li>Social anxiety and performance fears</li>
-                        <li>Panic attacks and physical anxiety symptoms</li>
-                        <li>Phobias and specific fears</li>
-                    </ul>
-                    
-                    <h4>Therapeutic approaches include:</h4>
-                    <p>Cognitive-Behavioral Therapy (CBT), mindfulness techniques, exposure therapy, and relaxation training. Treatment is focused on both immediate anxiety reduction and long-term management skills to promote lasting change.</p>
-                </div>
-                
-                <div class="service-item" id="depression">
-                    <h3>Depression Treatment</h3>
-                    <p>Find your way through depression with compassionate support and evidence-based strategies. We'll work together to rebuild hope, reconnect with meaningful activities, and develop sustainable well-being.</p>
-                    
-                    <h4>This service addresses:</h4>
-                    <ul>
-                        <li>Major depressive disorder and persistent depression</li>
-                        <li>Low motivation and energy</li>
-                        <li>Negative thought patterns</li>
-                        <li>Isolation and withdrawal</li>
-                    </ul>
-                    
-                    <h4>Treatment approaches include:</h4>
-                    <p>Cognitive Behavioral Therapy (CBT), Behavioral Activation, Mindfulness-Based Cognitive Therapy (MBCT), and other evidence-based interventions tailored to your specific experience of depression.</p>
-                </div>
-                
-                <div class="service-item" id="trauma">
-                    <h3>Trauma Recovery</h3>
-                    <p>Process traumatic experiences in a safe, supportive environment. Develop coping skills and work toward healing and post-traumatic growth with specialized trauma-informed care.</p>
-                    
-                    <h4>This approach helps with:</h4>
-                    <ul>
-                        <li>Processing past traumatic events</li>
-                        <li>Managing trauma-related symptoms</li>
-                        <li>Developing healthy coping strategies</li>
-                        <li>Rebuilding a sense of safety and trust</li>
-                    </ul>
-                    
-                    <h4>Specialized methods include:</h4>
-                    <p>Trauma-Focused Cognitive Behavioral Therapy (TF-CBT), EMDR (Eye Movement Desensitization and Reprocessing), and other evidence-based trauma approaches. Treatment pacing is always determined by your comfort level and readiness.</p>
-                </div>
-                
-                <div class="service-item" id="relationships">
-                    <h3>Relationship Counseling</h3>
-                    <p>Strengthen your relationship by improving communication, resolving conflicts, and deepening your connection. Learn to navigate challenges together with greater understanding and empathy.</p>
-                    
-                    <h4>This service helps with:</h4>
-                    <ul>
-                        <li>Communication breakdowns and recurring conflicts</li>
-                        <li>Trust and intimacy concerns</li>
-                        <li>Life transitions and relationship growth</li>
-                        <li>Pre-marital counseling and relationship enrichment</li>
-                    </ul>
-                    
-                    <h4>The process includes:</h4>
-                    <p>Initial assessment of relationship patterns, identification of strengths and growth areas, and development of practical strategies to enhance connection. Both partners are engaged equally in a supportive, non-judgmental environment.</p>
-                </div>
-                
-                <div class="service-item" id="grief">
-                    <h3>Grief Counseling</h3>
-                    <p>Navigate the complex emotions of grief and loss with compassionate guidance. Find meaning and move forward while honoring your experience and the significance of your loss.</p>
-                    
-                    <h4>This service provides support through:</h4>
-                    <ul>
-                        <li>Loss of loved ones</li>
-                        <li>Non-death losses (relationships, health, career)</li>
-                        <li>Complicated grief</li>
-                        <li>Anticipatory grief</li>
-                    </ul>
-                    
-                    <h4>The grief work includes:</h4>
-                    <p>Creating space to express and process emotions, making meaning of your loss, developing coping strategies, and gradually adapting to life changes. Treatment honors the uniqueness of each grief journey.</p>
                 </div>
             </div>
         </section>
@@ -394,6 +256,22 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Service Modals -->
+        <div class="service-modal-overlay" id="serviceModalOverlay">
+            <div class="service-modal">
+                <div class="modal-header">
+                    <h3 id="modalTitle">Service Title</h3>
+                    <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                    <!-- Content will be inserted here via JavaScript -->
+                </div>
+                <div class="modal-footer">
+                    <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer id="site-footer">
@@ -441,6 +319,6 @@
 
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
-    <script src="js/services-carousel.js"></script>
+    <script src="js/services-modal.js"></script>
 </body>
 </html>
