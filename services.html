@@ -7,11 +7,384 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/section-transitions.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/section-transitions.css">
+    <style>
+        /* Enhanced header styling for services page */
+        .page-header {
+            background-image: url('images/services_banner.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            padding: 8rem 0 6rem;
+            margin-bottom: -3rem;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(51, 39, 58, 0.85) 0%, rgba(216, 106, 141, 0.75) 100%);
+            z-index: 0;
+            backdrop-filter: blur(3px);
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+            z-index: 0;
+        }
+
+        .page-header .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header h1 {
+            color: var(--white);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            font-size: 3.8rem;
+        }
+
+        /* Services Grid Layout */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            border-top: 4px solid var(--primary-light);
+        }
+
+        .service-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(216, 106, 141, 0.15);
+        }
+
+        .service-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.05);
+        }
+
+        .service-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: -50px auto 1.5rem;
+            box-shadow: 0 5px 15px rgba(216, 106, 141, 0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-icon i {
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-size: 1.6rem;
+            text-align: center;
+        }
+
+        .service-card p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .service-details {
+            margin-top: 1rem;
+        }
+
+        .service-details h4 {
+            color: var(--dark);
+            margin: 1.5rem 0 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .service-details ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-details li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            color: var(--text-light);
+        }
+
+        .service-cta {
+            margin-top: auto;
+            text-align: center;
+        }
+
+        /* Feature Service Panel */
+        .feature-service {
+            background-color: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            margin: 3rem 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+
+        .feature-image {
+            position: relative;
+            height: 100%;
+            min-height: 400px;
+        }
+
+        .feature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .feature-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .feature-content h3 {
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .feature-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-badge {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* Process Section */
+        .services-process {
+            background-color: var(--accent);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(216, 106, 141, 0.15);
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(216, 106, 141, 0.2);
+        }
+
+        .process-step h4 {
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Insurance Section */
+        .insurance-section {
+            background-color: var(--white);
+            padding: 5rem 0;
+        }
+
+        .insurance-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .insurance-logos {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .insurance-logo {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 150px;
+            height: 80px;
+            transition: all 0.4s ease;
+        }
+
+        .insurance-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(216, 106, 141, 0.15);
+        }
+
+        .insurance-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        /* CTA Section */
+        .cta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cta-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border-top: 4px solid var(--primary-light);
+        }
+
+        .cta-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(216, 106, 141, 0.15);
+        }
+
+        .cta-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .cta-card p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .cta-button {
+            margin-top: auto;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 991px) {
+            .feature-service {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-image {
+                min-height: 300px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header id="site-header">
@@ -59,158 +432,340 @@
                     <h2>Specialized Mental Health Support</h2>
                     <p class="intro-text">I provide evidence-based therapeutic services tailored to your unique needs and goals. Each approach is personalized to help you navigate challenges and foster meaningful growth.</p>
                 </div>
+                
+                <!-- Featured Service Panel -->
+                <div class="feature-service fade-in">
+                    <div class="feature-image">
+                        <img src="https://placehold.co/800x600" alt="Individual Therapy">
+                    </div>
+                    <div class="feature-content">
+                        <span class="feature-badge">Most Popular</span>
+                        <h3>Individual Therapy</h3>
+                        <p>One-on-one sessions designed to address your specific challenges, goals, and personal growth journey. We'll work together to develop effective strategies for overcoming obstacles and improving overall well-being.</p>
+                        <p>These sessions provide a safe, confidential space to explore your thoughts, feelings, and behaviors with professional guidance and support.</p>
+                        <a href="#individual" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                
+                <div class="services-grid">
+                    <div class="service-card fade-in-up delay-100">
+                        <div class="service-image">
+                            <img src="https://placehold.co/600x400" alt="Anxiety Management">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Anxiety Management</h3>
+                            <p>Develop practical techniques to manage anxiety and build resilience against stress.</p>
+                            <div class="service-cta">
+                                <a href="#anxiety" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in-up delay-300">
+                        <div class="service-image">
+                            <img src="https://placehold.co/600x400" alt="Depression Treatment">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-cloud-rain"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Depression Treatment</h3>
+                            <p>Find your way through depression with compassionate support and evidence-based strategies.</p>
+                            <div class="service-cta">
+                                <a href="#depression" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in-up delay-500">
+                        <div class="service-image">
+                            <img src="https://placehold.co/600x400" alt="Trauma Recovery">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-heart-broken"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Trauma Recovery</h3>
+                            <p>Process traumatic experiences in a safe environment and develop resilience.</p>
+                            <div class="service-cta">
+                                <a href="#trauma" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in-up delay-100">
+                        <div class="service-image">
+                            <img src="https://placehold.co/600x400" alt="Relationship Counseling">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Relationship Counseling</h3>
+                            <p>Improve communication, resolve conflicts, and strengthen your connections.</p>
+                            <div class="service-cta">
+                                <a href="#relationships" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in-up delay-300">
+                        <div class="service-image">
+                            <img src="https://placehold.co/600x400" alt="Grief Counseling">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Grief Counseling</h3>
+                            <p>Navigate loss with compassionate guidance while honoring your experience.</p>
+                            <div class="service-cta">
+                                <a href="#grief" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card fade-in-up delay-500">
+                        <div class="service-image">
+                            <img src="https://placehold.co/600x400" alt="Life Transitions">
+                        </div>
+                        <div class="service-icon">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div class="service-content">
+                            <h3>Life Transitions</h3>
+                            <p>Navigate major changes and decisions with clarity and confidence.</p>
+                            <div class="service-cta">
+                                <a href="#transitions" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="services-process">
+            <div class="container">
+                <div class="section-content text-center">
+                    <h2>How We'll Work Together</h2>
+                    <p>My approach ensures you receive personalized care that addresses your unique needs and goals.</p>
+                </div>
+                
+                <div class="process-steps">
+                    <div class="process-step fade-in-up">
+                        <div class="step-number">1</div>
+                        <h4>Initial Consultation</h4>
+                        <p>We'll discuss your current concerns, explore your background, and identify your goals for therapy in a comfortable, no-pressure environment.</p>
+                    </div>
+                    
+                    <div class="process-step fade-in-up delay-200">
+                        <div class="step-number">2</div>
+                        <h4>Personalized Plan</h4>
+                        <p>Together, we'll develop a customized treatment plan that integrates evidence-based approaches suited to your specific needs and preferences.</p>
+                    </div>
+                    
+                    <div class="process-step fade-in-up delay-400">
+                        <div class="step-number">3</div>
+                        <h4>Ongoing Sessions</h4>
+                        <p>Regular sessions provide the space for exploration, skill development, and progress toward your goals in a supportive environment.</p>
+                    </div>
+                    
+                    <div class="process-step fade-in-up delay-600">
+                        <div class="step-number">4</div>
+                        <h4>Progress & Growth</h4>
+                        <p>We'll regularly assess your progress, celebrate successes, and make adjustments to ensure your therapy journey remains aligned with your evolving needs.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="services-list">
+        <section class="services-detail" id="individual">
             <div class="container">
-                <div class="service-item" id="individual">
-                    <div class="service-image">
-                        <img src="https://placehold.co/600x400" alt="Individual Therapy">
-                    </div>
-                    <div class="service-details">
-                        <h3>Individual Therapy</h3>
-                        <p>One-on-one sessions designed to address your specific challenges, goals, and growth. We'll work together to develop effective strategies for overcoming obstacles and improving overall well-being.</p>
-                        
-                        <h4>This service is ideal for those experiencing:</h4>
-                        <ul>
-                            <li>Life transitions and adjustment difficulties</li>
-                            <li>Stress management challenges</li>
-                            <li>Self-esteem and identity concerns</li>
-                            <li>Personal growth and self-exploration</li>
-                        </ul>
-                        
-                        <h4>What to expect:</h4>
-                        <p>Individual therapy typically begins with an assessment of your current concerns and goals. Together, we'll develop a personalized treatment plan that incorporates evidence-based techniques suited to your needs. Sessions are generally held weekly, with adjustments made as progress continues.</p>
-                        
-                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
-                    </div>
+                <h2>Service Details</h2>
+                
+                <div class="service-item">
+                    <h3>Individual Therapy</h3>
+                    <p>One-on-one sessions designed to address your specific challenges, goals, and growth. We'll work together to develop effective strategies for overcoming obstacles and improving overall well-being.</p>
+                    
+                    <h4>This service is ideal for those experiencing:</h4>
+                    <ul>
+                        <li>Life transitions and adjustment difficulties</li>
+                        <li>Stress management challenges</li>
+                        <li>Self-esteem and identity concerns</li>
+                        <li>Personal growth and self-exploration</li>
+                    </ul>
+                    
+                    <h4>What to expect:</h4>
+                    <p>Individual therapy typically begins with an assessment of your current concerns and goals. Together, we'll develop a personalized treatment plan that incorporates evidence-based techniques suited to your needs. Sessions are generally held weekly, with adjustments made as progress continues.</p>
                 </div>
-                                
+                
                 <div class="service-item" id="anxiety">
-                    <div class="service-details">
-                        <h3>Anxiety Management</h3>
-                        <p>Develop practical techniques to manage anxiety and reduce its impact on your daily life. Learn to recognize triggers, challenge anxious thoughts, and build resilience against stress.</p>
-                        
-                        <h4>This service addresses:</h4>
-                        <ul>
-                            <li>Generalized anxiety and persistent worry</li>
-                            <li>Social anxiety and performance fears</li>
-                            <li>Panic attacks and physical anxiety symptoms</li>
-                            <li>Phobias and specific fears</li>
-                        </ul>
-                        
-                        <h4>Therapeutic approaches include:</h4>
-                        <p>Cognitive-Behavioral Therapy (CBT), mindfulness techniques, exposure therapy, and relaxation training. Treatment is focused on both immediate anxiety reduction and long-term management skills to promote lasting change.</p>
-                        
-                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
-                    </div>
-                    <div class="service-image">
-                        <img src="https://placehold.co/600x400" alt="Anxiety Management">
-                    </div>
+                    <h3>Anxiety Management</h3>
+                    <p>Develop practical techniques to manage anxiety and reduce its impact on your daily life. Learn to recognize triggers, challenge anxious thoughts, and build resilience against stress.</p>
+                    
+                    <h4>This service addresses:</h4>
+                    <ul>
+                        <li>Generalized anxiety and persistent worry</li>
+                        <li>Social anxiety and performance fears</li>
+                        <li>Panic attacks and physical anxiety symptoms</li>
+                        <li>Phobias and specific fears</li>
+                    </ul>
+                    
+                    <h4>Therapeutic approaches include:</h4>
+                    <p>Cognitive-Behavioral Therapy (CBT), mindfulness techniques, exposure therapy, and relaxation training. Treatment is focused on both immediate anxiety reduction and long-term management skills to promote lasting change.</p>
                 </div>
-                                
-                <div class="service-item" id="trauma">
-                    <div class="service-image">
-                        <img src="https://placehold.co/600x400" alt="Trauma Recovery">
-                    </div>
-                    <div class="service-details">
-                        <h3>Trauma Recovery</h3>
-                        <p>Process traumatic experiences in a safe, supportive environment. Develop coping skills and work toward healing and post-traumatic growth with specialized trauma-informed care.</p>
-                        
-                        <h4>This approach helps with:</h4>
-                        <ul>
-                            <li>Processing past traumatic events</li>
-                            <li>Managing trauma-related symptoms</li>
-                            <li>Developing healthy coping strategies</li>
-                            <li>Rebuilding a sense of safety and trust</li>
-                        </ul>
-                        
-                        <h4>Specialized methods include:</h4>
-                        <p>Trauma-Focused Cognitive Behavioral Therapy (TF-CBT), EMDR (Eye Movement Desensitization and Reprocessing), and other evidence-based trauma approaches. Treatment pacing is always determined by your comfort level and readiness.</p>
-                        
-                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
-                    </div>
-                </div>
-                                
+                
                 <div class="service-item" id="depression">
-                    <div class="service-details">
-                        <h3>Depression Treatment</h3>
-                        <p>Find your way through depression with compassionate support and evidence-based strategies. We'll work together to rebuild hope, reconnect with meaningful activities, and develop sustainable well-being.</p>
-                        
-                        <h4>This service addresses:</h4>
-                        <ul>
-                            <li>Major depressive disorder and persistent depression</li>
-                            <li>Low motivation and energy</li>
-                            <li>Negative thought patterns</li>
-                            <li>Isolation and withdrawal</li>
-                        </ul>
-                        
-                        <h4>Treatment approaches include:</h4>
-                        <p>Cognitive Behavioral Therapy (CBT), Behavioral Activation, Mindfulness-Based Cognitive Therapy (MBCT), and other evidence-based interventions tailored to your specific experience of depression.</p>
-                        
-                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
-                    </div>
-                    <div class="service-image">
-                        <img src="https://placehold.co/600x400" alt="Depression Treatment">
-                    </div>
+                    <h3>Depression Treatment</h3>
+                    <p>Find your way through depression with compassionate support and evidence-based strategies. We'll work together to rebuild hope, reconnect with meaningful activities, and develop sustainable well-being.</p>
+                    
+                    <h4>This service addresses:</h4>
+                    <ul>
+                        <li>Major depressive disorder and persistent depression</li>
+                        <li>Low motivation and energy</li>
+                        <li>Negative thought patterns</li>
+                        <li>Isolation and withdrawal</li>
+                    </ul>
+                    
+                    <h4>Treatment approaches include:</h4>
+                    <p>Cognitive Behavioral Therapy (CBT), Behavioral Activation, Mindfulness-Based Cognitive Therapy (MBCT), and other evidence-based interventions tailored to your specific experience of depression.</p>
                 </div>
-                                
+                
+                <div class="service-item" id="trauma">
+                    <h3>Trauma Recovery</h3>
+                    <p>Process traumatic experiences in a safe, supportive environment. Develop coping skills and work toward healing and post-traumatic growth with specialized trauma-informed care.</p>
+                    
+                    <h4>This approach helps with:</h4>
+                    <ul>
+                        <li>Processing past traumatic events</li>
+                        <li>Managing trauma-related symptoms</li>
+                        <li>Developing healthy coping strategies</li>
+                        <li>Rebuilding a sense of safety and trust</li>
+                    </ul>
+                    
+                    <h4>Specialized methods include:</h4>
+                    <p>Trauma-Focused Cognitive Behavioral Therapy (TF-CBT), EMDR (Eye Movement Desensitization and Reprocessing), and other evidence-based trauma approaches. Treatment pacing is always determined by your comfort level and readiness.</p>
+                </div>
+                
                 <div class="service-item" id="relationships">
-                    <div class="service-image">
-                        <img src="https://placehold.co/600x400" alt="Relationship Counseling">
-                    </div>
-                    <div class="service-details">
-                        <h3>Relationship Counseling</h3>
-                        <p>Strengthen your relationship by improving communication, resolving conflicts, and deepening your connection. Learn to navigate challenges together with greater understanding and empathy.</p>
-                        
-                        <h4>This service helps with:</h4>
-                        <ul>
-                            <li>Communication breakdowns and recurring conflicts</li>
-                            <li>Trust and intimacy concerns</li>
-                            <li>Life transitions and relationship growth</li>
-                            <li>Pre-marital counseling and relationship enrichment</li>
-                        </ul>
-                        
-                        <h4>The process includes:</h4>
-                        <p>Initial assessment of relationship patterns, identification of strengths and growth areas, and development of practical strategies to enhance connection. Both partners are engaged equally in a supportive, non-judgmental environment.</p>
-                        
-                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
-                    </div>
+                    <h3>Relationship Counseling</h3>
+                    <p>Strengthen your relationship by improving communication, resolving conflicts, and deepening your connection. Learn to navigate challenges together with greater understanding and empathy.</p>
+                    
+                    <h4>This service helps with:</h4>
+                    <ul>
+                        <li>Communication breakdowns and recurring conflicts</li>
+                        <li>Trust and intimacy concerns</li>
+                        <li>Life transitions and relationship growth</li>
+                        <li>Pre-marital counseling and relationship enrichment</li>
+                    </ul>
+                    
+                    <h4>The process includes:</h4>
+                    <p>Initial assessment of relationship patterns, identification of strengths and growth areas, and development of practical strategies to enhance connection. Both partners are engaged equally in a supportive, non-judgmental environment.</p>
                 </div>
-                                
+                
                 <div class="service-item" id="grief">
-                    <div class="service-details">
-                        <h3>Grief Counseling</h3>
-                        <p>Navigate the complex emotions of grief and loss with compassionate guidance. Find meaning and move forward while honoring your experience and the significance of your loss.</p>
-                        
-                        <h4>This service provides support through:</h4>
-                        <ul>
-                            <li>Loss of loved ones</li>
-                            <li>Non-death losses (relationships, health, career)</li>
-                            <li>Complicated grief</li>
-                            <li>Anticipatory grief</li>
-                        </ul>
-                        
-                        <h4>The grief work includes:</h4>
-                        <p>Creating space to express and process emotions, making meaning of your loss, developing coping strategies, and gradually adapting to life changes. Treatment honors the uniqueness of each grief journey.</p>
-                        
-                        <a href="contact.html" class="btn btn-primary">Schedule a Consultation</a>
+                    <h3>Grief Counseling</h3>
+                    <p>Navigate the complex emotions of grief and loss with compassionate guidance. Find meaning and move forward while honoring your experience and the significance of your loss.</p>
+                    
+                    <h4>This service provides support through:</h4>
+                    <ul>
+                        <li>Loss of loved ones</li>
+                        <li>Non-death losses (relationships, health, career)</li>
+                        <li>Complicated grief</li>
+                        <li>Anticipatory grief</li>
+                    </ul>
+                    
+                    <h4>The grief work includes:</h4>
+                    <p>Creating space to express and process emotions, making meaning of your loss, developing coping strategies, and gradually adapting to life changes. Treatment honors the uniqueness of each grief journey.</p>
+                </div>
+                
+                <div class="service-item" id="transitions">
+                    <h3>Life Transitions</h3>
+                    <p>Navigate major life changes with confidence and clarity. Develop strategies to manage uncertainty and create a meaningful path forward during periods of transition.</p>
+                    
+                    <h4>This service supports you through:</h4>
+                    <ul>
+                        <li>Career changes and work-related stress</li>
+                        <li>Relocation and adjustment to new environments</li>
+                        <li>Relationship beginnings and endings</li>
+                        <li>Identity shifts and personal reinvention</li>
+                    </ul>
+                    
+                    <h4>The approach includes:</h4>
+                    <p>Exploration of values and priorities, development of coping strategies for uncertainty, and creation of action plans to navigate change effectively. Sessions focus on both practical concerns and emotional processing.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="insurance-section">
+            <div class="container">
+                <div class="insurance-content">
+                    <h2>Insurance & Payment Options</h2>
+                    <p>I accept several major insurance plans and offer flexible payment options to ensure you can access the care you need.</p>
+                    
+                    <div class="insurance-logos">
+                        <div class="insurance-logo">
+                            <img src="/api/placeholder/150/80" alt="Blue Cross Blue Shield">
+                        </div>
+                        <div class="insurance-logo">
+                            <img src="/api/placeholder/150/80" alt="Aetna">
+                        </div>
+                        <div class="insurance-logo">
+                            <img src="/api/placeholder/150/80" alt="Cigna">
+                        </div>
+                        <div class="insurance-logo">
+                            <img src="/api/placeholder/150/80" alt="United Healthcare">
+                        </div>
                     </div>
-                    <div class="service-image">
-                        <img src="https://placehold.co/600x400" alt="Grief Counseling">
-                    </div>
+                    
+                    <p>If you're uncertain about your coverage, I'm happy to help verify your benefits before our first session. Self-pay options and sliding scale fees are also available.</p>
+                    
+                    <a href="contact.html" class="btn btn-primary">Contact for Payment Details</a>
                 </div>
             </div>
         </section>
 
         <section class="cta-section">
             <div class="container">
-                <h2>Ready to Begin Your Healing Journey?</h2>
-                <p>Take the first step toward mental wellness today.</p>
-                <div class="cta-buttons">
-                    <a href="contact.html" class="btn btn-primary btn-large">Schedule Your Consultation</a>
-                    <a href="approach.html" class="btn btn-secondary">Learn About My Approach</a>
+                <h2>Begin Your Healing Journey Today</h2>
+                <p>Take the first step toward mental wellness with personalized, compassionate support.</p>
+                
+                <div class="cta-grid">
+                    <div class="cta-card fade-in-up">
+                        <div class="cta-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Schedule a Consultation</h3>
+                        <p>Begin with a no-pressure conversation to explore how therapy might help with your specific needs.</p>
+                        <div class="cta-button">
+                            <a href="contact.html" class="btn btn-primary">Book Now</a>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-card fade-in-up delay-200">
+                        <div class="cta-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>Have Questions?</h3>
+                        <p>Find answers to common questions about therapy, insurance, and what to expect.</p>
+                        <div class="cta-button">
+                            <a href="faq.html" class="btn btn-primary">View FAQ</a>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-card fade-in-up delay-400">
+                        <div class="cta-icon">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <h3>Learn About My Approach</h3>
+                        <p>Discover more about my therapeutic style and philosophy to see if we're a good fit.</p>
+                        <div class="cta-button">
+                            <a href="approach.html" class="btn btn-primary">Explore Approach</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
