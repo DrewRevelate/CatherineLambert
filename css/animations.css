@@ -219,3 +219,270 @@
         scroll-behavior: auto !important;
     }
 }
+/* 
+ * Animations Stylesheet - Softer Version
+ * Catherine Lambert Therapy Website
+ */
+
+/* ===== Animation Keyframes ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Reduced distance */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px); /* Reduced distance */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px); /* Reduced distance */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95); /* More subtle scale */
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes softBorderPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(157, 137, 170, 0.3);
+    }
+    70% {
+        box-shadow: 0 0 0 8px rgba(157, 137, 170, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(157, 137, 170, 0);
+    }
+}
+
+/* Service icon shimmer animation */
+@keyframes shimmer {
+    0% {
+        transform: rotate(45deg) translateX(-100%);
+    }
+    100% {
+        transform: rotate(45deg) translateX(100%);
+    }
+}
+
+@keyframes shimmerPeriodic {
+    0%, 100% {
+        transform: rotate(45deg) translateX(-100%);
+    }
+    20%, 80% {
+        transform: rotate(45deg) translateX(100%);
+    }
+}
+
+/* ===== Animation Classes ===== */
+.fade-in {
+    animation: fadeIn 1.2s ease-out forwards; /* Slower animation */
+}
+
+.fade-in-up {
+    animation: fadeInUp 1.2s ease-out forwards;
+}
+
+.fade-in-left {
+    animation: fadeInLeft 1.2s ease-out forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 1.2s ease-out forwards;
+}
+
+.scale-up {
+    animation: scaleUp 1s ease-out forwards;
+}
+
+/* ===== Animation Delays ===== */
+.delay-100 {
+    animation-delay: 100ms;
+}
+
+.delay-300 {
+    animation-delay: 300ms;
+}
+
+.delay-500 {
+    animation-delay: 500ms;
+}
+
+.delay-700 {
+    animation-delay: 700ms;
+}
+
+.delay-900 {
+    animation-delay: 900ms;
+}
+
+/* ===== Scroll Animation Classes ===== */
+.animate-on-scroll {
+    opacity: 0;
+    transition: opacity 1s, transform 1s; /* Slower transitions */
+}
+
+.animate-on-scroll.fade-in-visible {
+    opacity: 1;
+}
+
+.animate-on-scroll.fade-up-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.animate-on-scroll.fade-up {
+    transform: translateY(20px); /* Reduced distance */
+}
+
+.animate-on-scroll.fade-left-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-on-scroll.fade-left {
+    transform: translateX(-20px); /* Reduced distance */
+}
+
+.animate-on-scroll.fade-right-visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.animate-on-scroll.fade-right {
+    transform: translateX(20px); /* Reduced distance */
+}
+
+/* ===== Element-specific animations ===== */
+.hero h1 {
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 300ms;
+}
+
+.hero .subtitle {
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 600ms;
+}
+
+.hero-buttons {
+    opacity: 0;
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 900ms;
+}
+
+.service-card {
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                box-shadow 0.6s ease-out; /* Slower transitions */
+}
+
+.testimonial {
+    opacity: 0;
+    animation: fadeIn 2s ease-out forwards; /* Slower animation */
+}
+
+.principle {
+    transition: transform 0.5s ease, box-shadow 0.5s ease; /* Slower transitions */
+}
+
+.principle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05); /* Softer shadow */
+}
+
+/* Service icon animations */
+.service-icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg) translateX(-100%);
+    z-index: 1;
+}
+
+.service-card:hover .service-icon::before,
+.service-icon.shimmer::before {
+    animation: shimmer 1.5s forwards;
+}
+
+.service-icon.animate-shimmer::before {
+    animation: shimmerPeriodic 6s infinite;
+}
+
+/* ===== Interactive Element Animations ===== */
+.btn {
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+                background-color 0.5s ease,
+                box-shadow 0.5s ease; /* Slower transitions */
+}
+
+.nav-btn:hover {
+    animation: softBorderPulse 2s infinite; /* Softer, slower pulse */
+}
+
+/* ===== Mobile Menu Animation ===== */
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ===== Reduce Motion Preference ===== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
