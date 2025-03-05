@@ -13,30 +13,55 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Page-specific enhancements */
-        .page-header {
-            background-image: url('images/about_banner.jpg');
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            padding: 8rem 0 4rem;
-        }
-        
-        .page-header::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(51, 39, 58, 0.8) 0%, rgba(216, 106, 141, 0.7) 100%);
-            z-index: 0;
-        }
-        
-        .page-header .container {
-            position: relative;
-            z-index: 1;
-        }
+/* Enhanced header styling for rose image */
+.page-header {
+    background-image: url('images/about_banner.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 8rem 0 6rem;
+    margin-bottom: -3rem; /* Creates overlap with next section */
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(51, 39, 58, 0.85) 0%, rgba(216, 106, 141, 0.75) 100%);
+    z-index: 0;
+    backdrop-filter: blur(3px); /* Softens the rose image */
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    z-index: 0;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.page-header h1 {
+    color: var(--white);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    font-size: 3.8rem;
+}
+
+.about-intro {
+    position: relative;
+    z-index: 2; /* Ensures content appears above the header fade */
+    padding-top: 5rem;
+}
         
         /* About intro section */
         .about-grid {
@@ -277,7 +302,7 @@
                         <img src="https://placehold.co/600x750" alt="Catherine Lambert">
                         <div class="experience-badge">
                             <span class="years">15+</span>
-                            <span class="text">Years Experience</span>
+                            <span class="text">Years<br>Experience</span>
                         </div>
                     </div>
                     <div class="about-content fade-in-right">
