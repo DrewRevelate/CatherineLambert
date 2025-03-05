@@ -7,11 +7,119 @@
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/section-transitions.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/section-transitions.css">
+    <style>
+        /* Page-specific enhancements */
+        .page-header {
+            background-image: url('images/about_banner.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .page-header::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(51, 39, 58, 0.8) 0%, rgba(216, 106, 141, 0.7) 100%);
+            z-index: 0;
+        }
+        
+        .page-header .container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-image {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(216, 106, 141, 0.15);
+        }
+        
+        .about-image img {
+            border-radius: 20px;
+            display: block;
+            width: 100%;
+            transition: transform 0.5s ease;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        .experience-badge {
+            position: absolute;
+            bottom: -25px;
+            right: -25px;
+            width: 120px;
+            height: 120px;
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(216, 106, 141, 0.25);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(216, 106, 141, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(216, 106, 141, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(216, 106, 141, 0);
+            }
+        }
+        
+        .credential-card {
+            border-top: 4px solid var(--primary-light);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .credential-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(216, 106, 141, 0.15);
+        }
+        
+        .credential-icon {
+            color: var(--primary);
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .principle {
+            border-left: 4px solid var(--primary-light);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .principle:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 15px 35px rgba(216, 106, 141, 0.15);
+        }
+        
+        .principle h3 {
+            color: var(--primary);
+        }
+        
+        .about-content .intro-paragraph {
+            font-size: 1.3rem;
+            color: var(--primary);
+        }
+    </style>
 </head>
 <body>
     <header id="site-header">
@@ -56,14 +164,14 @@
         <section class="about-intro">
             <div class="container">
                 <div class="about-grid">
-                    <div class="about-image">
+                    <div class="about-image fade-in-left">
                         <img src="https://placehold.co/600x750" alt="Catherine Lambert">
                         <div class="experience-badge">
                             <span class="years">15+</span>
                             <span class="text">Years Experience</span>
                         </div>
                     </div>
-                    <div class="about-content">
+                    <div class="about-content fade-in-right">
                         <h2>My Story</h2>
                         <p class="intro-paragraph">With over 15 years of experience in mental health counseling, I bring warmth, expertise, and a person-centered approach to every therapeutic relationship.</p>
                         
@@ -83,7 +191,7 @@
             <div class="container">
                 <h2>Education & Credentials</h2>
                 <div class="credentials-grid">
-                    <div class="credential-card">
+                    <div class="credential-card fade-in-up delay-100">
                         <div class="credential-icon">
                             <i class="fas fa-graduation-cap"></i>
                         </div>
@@ -95,7 +203,7 @@
                         </ul>
                     </div>
                     
-                    <div class="credential-card">
+                    <div class="credential-card fade-in-up delay-300">
                         <div class="credential-icon">
                             <i class="fas fa-award"></i>
                         </div>
@@ -106,7 +214,7 @@
                         </ul>
                     </div>
                     
-                    <div class="credential-card">
+                    <div class="credential-card fade-in-up delay-500">
                         <div class="credential-icon">
                             <i class="fas fa-certificate"></i>
                         </div>
@@ -128,22 +236,22 @@
                     <p>I believe that therapy is a collaborative journey toward healing and growth. My approach is built on these core principles:</p>
                     
                     <div class="philosophy-principles">
-                        <div class="principle">
+                        <div class="principle fade-in-up delay-100">
                             <h3>Every Person Is Unique</h3>
                             <p>Your experiences, challenges, and strengths are distinctly yours. Therapy should honor your individuality and be tailored to your specific needs.</p>
                         </div>
                         
-                        <div class="principle">
+                        <div class="principle fade-in-up delay-300">
                             <h3>Healing Takes Courage</h3>
                             <p>Seeking help and confronting difficult emotions requires tremendous courage. I respect the bravery it takes to begin therapy and navigate the path to healing.</p>
                         </div>
                         
-                        <div class="principle">
+                        <div class="principle fade-in-up delay-500">
                             <h3>Compassion Is Essential</h3>
                             <p>Sustainable change comes from a place of self-compassion, not self-criticism. I foster an environment where you can develop greater kindness toward yourself.</p>
                         </div>
                         
-                        <div class="principle">
+                        <div class="principle fade-in-up delay-700">
                             <h3>Balance Evidence & Intuition</h3>
                             <p>Effective therapy balances evidence-based techniques with intuitive understanding. I combine proven methods with a deeply human approach to support your growth.</p>
                         </div>
