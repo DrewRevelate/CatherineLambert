@@ -133,38 +133,128 @@
     }
 }
 
-/* Specialties section */
+/* Improved Specialties Section */
 .specialties {
-    background-color: var(--white);
+    background-color: #f9f6f7;
     padding: 4rem 0;
+    position: relative;
+}
+
+.specialties-container {
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
 .specialties-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
     margin-top: 2rem;
 }
 
-.specialty-item {
-    text-align: center;
+.specialty-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    width: calc(33.333% - 1rem);
+    min-width: 250px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border-left: 4px solid var(--primary-light);
+}
+
+.specialty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(216, 106, 141, 0.15);
+}
+
+.specialty-content {
     padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
 .specialty-icon {
-    font-size: 2.5rem;
     color: var(--primary);
+    font-size: 1.8rem;
+    min-width: 40px;
+    text-align: center;
+}
+
+.specialty-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+}
+
+.specialty-info p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Specialty Description Section */
+.specialty-description {
+    background-color: var(--white);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 3rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.specialty-description::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+}
+
+.specialty-description h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.specialty-description p {
     margin-bottom: 1rem;
 }
 
-.specialty-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+/* For small screens */
+@media (max-width: 768px) {
+    .specialty-card {
+        width: calc(50% - 1rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .specialty-card {
+        width: 100%;
+    }
+}
+
+/* Animation for highlight pulse */
+@keyframes highlightPulse {
+    0% { box-shadow: 0 0 0 0 rgba(216, 106, 141, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(216, 106, 141, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(216, 106, 141, 0); }
+}
+
+.highlight-pulse {
+    animation: highlightPulse 1s;
 }
 
 /* Credentials section */
 .credentials {
-    background-color: #f9f6f7; /* Very light rose tint */
+    background-color: var(--white);
     padding: 4rem 0;
 }
 
@@ -215,7 +305,7 @@
 /* Philosophy section */
 .philosophy {
     padding: 4rem 0;
-    background-color: var(--white);
+    background-color: #f9f6f7;
 }
 
 .philosophy-content {
@@ -351,52 +441,88 @@
         </section>
 
         <section class="specialties">
-            <div class="container">
+            <div class="container specialties-container">
                 <h2>Areas of Specialization</h2>
                 <p>I offer specialized treatment for a range of mental health concerns:</p>
                 
                 <div class="specialties-grid">
-                    <div class="specialty-item fade-in-up">
-                        <div class="specialty-icon">
-                            <i class="fas fa-brain"></i>
+                    <div class="specialty-card fade-in-up">
+                        <div class="specialty-content">
+                            <div class="specialty-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <div class="specialty-info">
+                                <h3>Anxiety Disorders</h3>
+                                <p>Evidence-based treatment for generalized anxiety, panic disorder, and specific phobias.</p>
+                            </div>
                         </div>
-                        <h3>Anxiety Disorders</h3>
                     </div>
                     
-                    <div class="specialty-item fade-in-up delay-100">
-                        <div class="specialty-icon">
-                            <i class="fas fa-cloud-rain"></i>
+                    <div class="specialty-card fade-in-up">
+                        <div class="specialty-content">
+                            <div class="specialty-icon">
+                                <i class="fas fa-cloud-rain"></i>
+                            </div>
+                            <div class="specialty-info">
+                                <h3>Depression</h3>
+                                <p>Compassionate support and effective strategies for overcoming depression and mood disorders.</p>
+                            </div>
                         </div>
-                        <h3>Depression</h3>
                     </div>
                     
-                    <div class="specialty-item fade-in-up delay-200">
-                        <div class="specialty-icon">
-                            <i class="fas fa-heart-broken"></i>
+                    <div class="specialty-card fade-in-up">
+                        <div class="specialty-content">
+                            <div class="specialty-icon">
+                                <i class="fas fa-heart-broken"></i>
+                            </div>
+                            <div class="specialty-info">
+                                <h3>Trauma Recovery</h3>
+                                <p>Trauma-informed care to process experiences and develop resilience in a safe environment.</p>
+                            </div>
                         </div>
-                        <h3>Trauma Recovery</h3>
                     </div>
                     
-                    <div class="specialty-item fade-in-up delay-300">
-                        <div class="specialty-icon">
-                            <i class="fas fa-users"></i>
+                    <div class="specialty-card fade-in-up">
+                        <div class="specialty-content">
+                            <div class="specialty-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="specialty-info">
+                                <h3>Relationship Issues</h3>
+                                <p>Guidance for improving communication, resolving conflicts, and strengthening connections.</p>
+                            </div>
                         </div>
-                        <h3>Relationship Issues</h3>
                     </div>
                     
-                    <div class="specialty-item fade-in-up delay-400">
-                        <div class="specialty-icon">
-                            <i class="fas fa-balance-scale"></i>
+                    <div class="specialty-card fade-in-up">
+                        <div class="specialty-content">
+                            <div class="specialty-icon">
+                                <i class="fas fa-balance-scale"></i>
+                            </div>
+                            <div class="specialty-info">
+                                <h3>Life Transitions</h3>
+                                <p>Support during major life changes, career shifts, and important personal decisions.</p>
+                            </div>
                         </div>
-                        <h3>Life Transitions</h3>
                     </div>
                     
-                    <div class="specialty-item fade-in-up delay-500">
-                        <div class="specialty-icon">
-                            <i class="fas fa-hand-holding-heart"></i>
+                    <div class="specialty-card fade-in-up">
+                        <div class="specialty-content">
+                            <div class="specialty-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <div class="specialty-info">
+                                <h3>Self-Esteem</h3>
+                                <p>Develop a stronger sense of self-worth and confidence through targeted therapeutic work.</p>
+                            </div>
                         </div>
-                        <h3>Self-Esteem</h3>
                     </div>
+                </div>
+                
+                <div class="specialty-description">
+                    <h3>Integrative Approach</h3>
+                    <p>I believe in customizing treatment to your specific needs rather than using a one-size-fits-all approach. Drawing from cognitive-behavioral, mindfulness-based, and person-centered frameworks, I create a therapeutic experience uniquely suited to your goals and preferences.</p>
+                    <p>All treatment plans are developed collaboratively, with regular check-ins to ensure we're moving in the right direction and making adjustments as needed.</p>
                 </div>
             </div>
         </section>
@@ -530,5 +656,99 @@
 
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
+    <script>
+        // Script for Specialty Cards interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const specialtyCards = document.querySelectorAll('.specialty-card');
+            
+            // Add hover effect
+            specialtyCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    // Slightly enlarge card
+                    this.style.transform = 'translateY(-8px)';
+                    this.style.boxShadow = '0 15px 30px rgba(216, 106, 141, 0.2)';
+                    
+                    // Highlight icon
+                    const icon = this.querySelector('.specialty-icon');
+                    if (icon) {
+                        icon.style.transform = 'scale(1.1)';
+                        icon.style.color = 'var(--primary-light)';
+                    }
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                    
+                    const icon = this.querySelector('.specialty-icon');
+                    if (icon) {
+                        icon.style.transform = '';
+                        icon.style.color = '';
+                    }
+                });
+                
+                // Optional click to show more info
+                card.addEventListener('click', function() {
+                    const specialtyTitle = this.querySelector('h3').textContent;
+                    const descriptionSection = document.querySelector('.specialty-description');
+                    
+                    if (descriptionSection) {
+                        const descriptionTitle = descriptionSection.querySelector('h3');
+                        
+                        // Update title with clicked specialty
+                        if (descriptionTitle) {
+                            descriptionTitle.textContent = specialtyTitle;
+                            
+                            // Smooth scroll to description
+                            descriptionSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'center'
+                            });
+                            
+                            // Add a subtle highlight animation
+                            descriptionSection.classList.add('highlight-pulse');
+                            setTimeout(() => {
+                                descriptionSection.classList.remove('highlight-pulse');
+                            }, 1000);
+                        }
+                    }
+                });
+            });
+            
+            // Add subtle entrance animation when scrolled into view
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, {
+                    threshold: 0.2
+                });
+                
+                specialtyCards.forEach((card, index) => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.transitionDelay = `${index * 100}ms`;
+                    
+                    observer.observe(card);
+                });
+            } else {
+                // Fallback for browsers that don't support IntersectionObserver
+                specialtyCards.forEach(card => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                });
+            }
+            
+            document.querySelectorAll('.specialty-card.visible').forEach(card => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
 </body>
 </html>
