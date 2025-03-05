@@ -395,3 +395,76 @@
         transform: translateY(0);
     }
 }
+/* Softer divider transitions */
+.fluid-divider.primary-to-white,
+.fluid-divider.accent-to-primary,
+.fluid-divider.white-to-accent {
+    height: 200px;  /* Increase height for smoother transition */
+    margin: -100px 0; /* Adjust margins to compensate */
+    background: transparent; /* Remove default background */
+    position: relative;
+    z-index: 1;
+}
+
+.fluid-divider.primary-to-white::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(107, 92, 165, 0.8) 0%, rgba(107, 92, 165, 0.4) 30%, rgba(255, 255, 255, 0) 100%);
+    z-index: -1;
+}
+
+.fluid-divider.accent-to-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(249, 242, 244, 0.6) 0%, rgba(156, 140, 211, 0.6) 50%, rgba(107, 92, 165, 0.8) 100%);
+    z-index: -1;
+}
+
+.fluid-divider.white-to-accent::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.9) 0%, rgba(249, 242, 244, 0.6) 100%);
+    z-index: -1;
+}
+
+/* Improved testimonial section styling */
+.testimonial-section.fluid-section.primary {
+    background: linear-gradient(135deg, rgba(81, 67, 136, 0.95) 0%, rgba(107, 92, 165, 0.9) 100%);
+    /* Darker purple to improve contrast */
+}
+
+.testimonial p {
+    color: rgba(255, 255, 255, 0.95); /* Brighter text */
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1); /* Subtle shadow for better readability */
+    font-size: 1.3rem;
+    line-height: 1.9;
+}
+
+.testimonial-author {
+    color: rgba(255, 255, 255, 0.85);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.quote-mark {
+    color: rgba(255, 255, 255, 0.25); /* More visible but still subtle */
+}
+
+/* Optional: Add a subtle background to testimonial for better contrast */
+.testimonial {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+}
