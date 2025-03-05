@@ -63,21 +63,38 @@
         }
         
         .experience-badge {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 110px;
-            height: 110px;
-            background: var(--gradient-primary);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 20px rgba(216, 106, 141, 0.25);
-            animation: pulse 2s infinite;
-        }
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 110px;
+    height: 110px;
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(216, 106, 141, 0.25);
+    text-align: center;
+    padding: 10px;
+}
+
+.experience-badge .years {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 2px;
+    display: block;
+}
+
+.experience-badge .text {
+    font-size: 12px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: block;
+}
         
         @keyframes pulse {
             0% {
